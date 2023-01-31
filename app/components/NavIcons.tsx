@@ -1,13 +1,13 @@
 import React from "react";
 
-const NavIcons = () => {
+const NavIcons = ({ size }: { size: number }) => {
   return (
-    <span className="flex text-sm font-maven justify-end  gap-x-2 text-gray-700/90 fill-orange-700 mt-2 px-2 ">
+    <span className="flex text-sm font-maven justify-end  gap-x-2 text-gray-700/90 fill-orange-500 mt-2 px-2 ">
       <span className="navbarSVG ">
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          width="28"
-          height="28"
+          width={size}
+          height={size}
           viewBox="0 0 24 24"
           className="mx-auto "
         >
@@ -18,8 +18,8 @@ const NavIcons = () => {
       <span className="navbarSVG ">
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          width="28"
-          height="28"
+          width={size}
+          height={size}
           viewBox="0 0 24 24"
           className="mx-auto"
         >
@@ -30,8 +30,8 @@ const NavIcons = () => {
       <span className="navbarSVG ">
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          width="28"
-          height="28"
+          width={size}
+          height={size}
           viewBox="0 0 24 24"
           className="mx-auto"
         >

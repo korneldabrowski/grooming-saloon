@@ -2,7 +2,7 @@ import React from "react";
 
 const MiniAbout = () => {
   return (
-    <section className=" pt-24 mt-12 mb-12">
+    <section className=" pt-24 mt-12 mb-12 overflow-hidden">
       <h2 className=" text-2xl sm:text-4xl  inline-block bg-yellow-300/80 p-4 rounded-full -rotate-3">
         A grooming experience like no other
       </h2>
@@ -16,7 +16,7 @@ const MiniAbout = () => {
             <br />
             <br /> That's why we offer a grooming experience like no other.
           </p>
-          <button className="border-2 mr-auto p-2 rounded-full text-red-500 -rotate-6 hover:text-black hover:border-red-500 hover:bg-red-500/50 border-dashed  border-red-500">
+          <button className="dashedButton mr-auto -rotate-6">
             Learn even more!
           </button>
         </div>
