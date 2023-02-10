@@ -3,25 +3,25 @@ import NavIcons from "./NavIcons";
 
 const Footer = () => {
   return (
-    <footer className="text-center lg:text-left bg-[#fffded]  text-gray-600 stroke-orange-500 fill-orange-500">
-      <div className="flex justify-center items-center lg:justify-between p-6 border-b border-gray-300">
-        <div className="mr-12 hidden lg:block">
+    <footer className="bg-primary fill-accent stroke-accent text-center   lg:text-left">
+      <div className="flex items-center justify-center  px-6  pt-6 lg:justify-between">
+        <div className="mr-6 hidden lg:block">
           <span>Get connected with us on social networks:</span>
         </div>
         <div className="flex justify-center ">
-          <NavIcons size={24} />
+          <NavIcons size={20} />
         </div>
       </div>
-      <div className="mx-6 py-10 text-center md:text-left">
-        <div className="grid grid-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div className="mx-6 pt-4 pb-10 text-center md:text-left">
+        <div className="grid-1 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
           <div className="">
-            <h6 className="text-orange-700  uppercase font-semibold mb-4 flex items-center justify-center md:justify-start">
+            <h6 className="mb-4  flex items-center justify-center font-semibold uppercase text-accent md:justify-start">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
                 strokeWidth={1.5}
-                className="w-6 h-6"
+                className="h-6 w-6"
               >
                 <path
                   strokeLinecap="round"
@@ -37,7 +37,7 @@ const Footer = () => {
             </p>
           </div>
           <div className="">
-            <h6 className="text-orange-700 uppercase font-semibold mb-4 flex justify-center md:justify-start">
+            <h6 className="mb-4 flex justify-center text-lg font-bold uppercase md:justify-start">
               Products
             </h6>
             <p className="mb-4">
@@ -54,7 +54,7 @@ const Footer = () => {
             </p>
           </div>
           <div className="">
-            <h6 className=" text-orange-700 uppercase font-semibold mb-4 flex justify-center md:justify-start">
+            <h6 className="mb-4 flex justify-center text-lg font-bold uppercase md:justify-start">
               Useful links
             </h6>
             <p className="mb-4">
@@ -71,16 +71,16 @@ const Footer = () => {
             </p>
           </div>
           <div className="">
-            <h6 className="text-orange-700 uppercase font-semibold mb-4 flex justify-center md:justify-start">
+            <h6 className="mb-4 flex justify-center text-lg font-bold uppercase md:justify-start">
               Contact
             </h6>
-            <p className="flex items-center justify-center md:justify-start mb-4">
+            <p className="mb-4 flex items-center justify-center md:justify-start">
               <svg
                 aria-hidden="true"
                 focusable="false"
                 data-prefix="fas"
                 data-icon="home"
-                className="w-4 mr-4"
+                className="mr-4 w-4"
                 role="img"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 576 512"
@@ -89,13 +89,13 @@ const Footer = () => {
               </svg>
               Torun, Poland
             </p>
-            <p className="flex items-center justify-center md:justify-start mb-4">
+            <p className="mb-4 flex items-center justify-center md:justify-start">
               <svg
                 aria-hidden="true"
                 focusable="false"
                 data-prefix="fas"
                 data-icon="envelope"
-                className="w-4 mr-4"
+                className="mr-4 w-4"
                 role="img"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 512 512"
@@ -104,13 +104,13 @@ const Footer = () => {
               </svg>
               info@barktifulgrooming.com
             </p>
-            <p className="flex items-center justify-center md:justify-start mb-4">
+            <p className="mb-4 flex items-center justify-center md:justify-start">
               <svg
                 aria-hidden="true"
                 focusable="false"
                 data-prefix="fas"
                 data-icon="phone"
-                className="w-4 mr-4"
+                className="mr-4 w-4"
                 role="img"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 512 512"
@@ -122,9 +122,13 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="text-center p-6 bg-[#fbf8d8]">
-        <span>© 2021 Copyright:</span>
-        <span className="font-semibold"> Barktiful Grooming</span>
+      <div className="divider"></div>
+      <div className="pb-4 text-center ">
+        <span>© 2023 Copyright:</span>
+        <span className="font-semibold">
+          {" "}
+          Barktiful Grooming / Kornel Dabrowski
+        </span>
       </div>
     </footer>
   );

@@ -38,7 +38,7 @@ const PageDividerData = [
 
 const PageDivider = () => {
   return (
-    <section className="flex gap-y-10 gap-x-10 lg:gap-x-40 px-4 sm:px-20 justify-around flex-wrap">
+    <section className="flex flex-wrap justify-around gap-y-10 gap-x-10 p-4 sm:px-20 lg:gap-x-40">
       {PageDividerData.map((item) => {
         return (
           <PageItem
@@ -50,42 +50,6 @@ const PageDivider = () => {
           />
         );
       })}
-
-      {/* <div className="flex flex-col sm:flex-row sm:gap-x-4 ">
-        <div className=" bg-red-500/50 py-8 sm:px-12 sm:py-8 relative">
-          <Image
-            fill
-            src="/specialGrooming.png"
-            alt="Special grooming"
-            className="absolute"
-          />
-        </div>
-        <h3 className="sm:text-2xl text-md">Special grooming </h3>
-      </div>
-      <div className="flex gap-x-4">
-        <div className=" bg-cyan-500/50 px-12 py-8 relative">
-          <Image
-            fill
-            src="/bathingDog.png"
-            alt="Dog in bath"
-            className="absolute"
-          />
-        </div>
-
-        <h3 className="text-2xl">Bath</h3>
-      </div>
-      <div className="flex gap-x-4">
-        <div className=" bg-green-500/50 px-12 py-8"></div>
-        <h3 className="text-2xl">Teeth Cleaning</h3>
-      </div>
-      <div className="flex gap-x-4">
-        <div className=" bg-yellow-500/50 px-12 py-8"></div>
-        <h3 className="text-2xl">De-shredding</h3>
-      </div>
-      <div className="flex gap-x-4 ">
-        <div className=" bg-blue-500/50 px-12 py-8"></div>
-        <h3 className="text-2xl">Nail trimming</h3>
-      </div> */}
     </section>
   );
 };

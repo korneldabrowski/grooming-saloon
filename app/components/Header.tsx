@@ -1,26 +1,118 @@
 import React from "react";
+import Link from "next/link";
 
 type Props = {
   children?: React.ReactNode;
+  path: string;
 };
 
-const Header: React.FC<Props> = ({ children }) => {
+const Header: React.FC<Props> = ({ children, path }) => {
   return (
-    <div className="flex justify-between text-xl font-exo p-4 sm:p-6 items-center sm:flex-row flex-col sm:gap-x-2 gap-y-2 sm:gap-y-0 bg-[#fffded]">
-      <div className="flex-1 w-full">
-        <div className="flex flex-col">
-          <p className="text-3xl font-extrabold ">Bark-tiful Grooming</p>
-          <p className="text-gray-800/50 text-base font-maven ">by Karolina</p>
+    <div className="navbar glass sticky top-0 z-50 h-14 py-2 text-neutral ">
+      <div className="navbar-start  ">
+        <div className="dropdown z-50">
+          <label tabIndex={0} className="btn-ghost btn lg:hidden">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-5 w-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M4 6h16M4 12h8m-8 6h16"
+              />
+            </svg>
+          </label>
+          <ul
+            tabIndex={0}
+            className="dropdown-content menu rounded-box menu-compact mt-3 w-52 bg-accent/90 p-2 font-medium shadow"
+          >
+            <li>
+              <Link href="/">Home</Link>{" "}
+            </li>
+
+            <li tabIndex={0}>
+              <a>
+                Navigation
+                <svg
+                  className="fill-current"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
+                </svg>
+              </a>
+              <ul className=" z-50 bg-accent p-2  shadow-xl">
+                <li>
+                  <Link href="/">Main Page</Link>{" "}
+                </li>
+                <li>
+                  <Link href="/shop">Shop</Link>{" "}
+                </li>
+                <li>
+                  <Link href="/shop">About Us</Link>{" "}
+                </li>
+                <li>
+                  <Link href="/shop">Contact</Link>{" "}
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a>Item 3</a>
+            </li>
+          </ul>
         </div>
+        <Link href={path}>
+          <span className="btn-ghost btn p-0 text-lg normal-case text-secondary sm:p-2 sm:text-2xl">
+            Barktiful Grooming
+          </span>
+        </Link>
       </div>
-      <div className="flex flex-1 text-sm sm:text-base  gap-x-4 text-orange-800/60">
-        <button className="text-black">Home</button>
-        <button>Who we are</button>
-        <button>Services</button>
-        <button>F.A.Q</button>
-        <button>Contact</button>
+      <div className="navbar-center z-50 hidden lg:flex">
+        <ul className="menu menu-horizontal rounded-xl bg-accent/90 px-1  font-medium text-base-100 ">
+          <li>
+            <Link href="/">Home</Link>{" "}
+          </li>
+          <li tabIndex={0}>
+            <a>
+              Navigation
+              <svg
+                className="fill-current"
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+              >
+                <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
+              </svg>
+            </a>
+            <ul className=" z-50 bg-accent p-2  shadow-xl">
+              <li>
+                <Link href="/">Main Page</Link>{" "}
+              </li>
+              <li>
+                <Link href="/shop">Shop</Link>{" "}
+              </li>
+              <li>
+                <Link href="/shop">About Us</Link>{" "}
+              </li>
+              <li>
+                <Link href="/shop">Contact</Link>{" "}
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a>Item 3</a>
+          </li>
+        </ul>
       </div>
-      <div className=" ">{children}</div>
+      <div className="navbar-end">{children}</div>
     </div>
   );
 };

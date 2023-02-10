@@ -37,8 +37,46 @@ module.exports = {
       },
     },
   },
+  daisyui: {
+    styled: true,
+    themes: true,
+    base: true,
+    utils: true,
+    logs: true,
+    rtl: false,
+    prefix: "",
+    darkTheme: "dark",
+  },
+  // daisyui: {
+  //   themes: [
+  //     {
+  //       mytheme: {
+  //         primary: "#fedbb0",
+
+  //         secondary: "#f0abfc",
+
+  //         accent: "#67CBA0",
+
+  //         neutral: "#1d1d20",
+
+  //         "base-100": "#fffded",
+
+  //         info: "#85edf9",
+
+  //         success: "#b9f4ce",
+
+  //         warning: "#f97316",
+
+  //         error: "#f87171",
+  //       },
+  //     },
+  //   ],
+  // },
   plugins: [
     // ...
     require("tailwind-scrollbar"),
+    require("prettier-plugin-tailwindcss"),
+    require("daisyui"),
+    require("@tailwindcss/typography"),
   ],
 };

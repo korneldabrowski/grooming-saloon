@@ -1,45 +1,49 @@
-import Image from "next/image";
-
 import Landing from "./components/Landing";
 import MiniAbout from "./components/MiniAbout";
 import PageDivider from "./components/(MiniAbout)/PageDivider";
 import BestSellers from "./components/(shop)/BestSellers";
 import Reviews from "./components/(Reviews)/Reviews";
 import Header from "./components/Header";
+
+import Modal from "@/components/Modal";
+
 export default function Home() {
   return (
-    <main className="font-maven  ">
-      <Header>
+    <main className=" font-maven  ">
+      <Modal />
+      <Header path="/">
         <>
-          <button className=" px-4 py-2 border-dashed	 border-orange-500/70 border-[3px] rounded-full text-base tems-center text-orange-500/80 hover:text-black hover:bg-orange-300/50 hover:border-orange-400">
+          <button className="btn-outline btn-info btn rounded-full border-4 border-dashed p-2  font-black">
             Book a slot!
           </button>
         </>
       </Header>
-      <div className="bg-[#fffded]">
-        <div className="max-w-screen-xl  mx-auto">
+      <div className="bg-base-100">
+        <div className="mx-auto  max-w-screen-xl">
           <Landing />
         </div>
       </div>
 
-      <div className="max-w-screen-xl bg-white mx-auto">
-        <MiniAbout />
+      <div className="bg-base-100">
+        <div className="mx-auto   max-w-screen-xl">
+          <MiniAbout />
+        </div>
       </div>
 
-      <div className="bg-[#fffded]">
-        <div className="max-w-screen-xl  mx-auto">
+      <div className="bg-base-100">
+        <div className="mx-auto  max-w-screen-xl">
           <PageDivider />
         </div>
       </div>
 
-      <div className="bg-white">
-        <div className="max-w-screen-xl  mx-auto p-4">
+      <div className=" bg-base-100">
+        <div className="mx-auto  max-w-screen-xl p-4">
           <BestSellers />
         </div>
       </div>
 
-      <div className="bg-white">
-        <div className="max-w-screen-xl  mx-auto p-2 sm:p-4">
+      <div className="bg-base-100">
+        <div className="mx-auto  max-w-screen-xl p-2 sm:p-4">
           <Reviews />
         </div>
       </div>

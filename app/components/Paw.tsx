@@ -6,7 +6,7 @@ const Paw = () => {
       width="100%"
       height="100%"
       viewBox="-50 0 1200 1200"
-      className="sm:w-2/3 lg:w-[40%] mx-auto"
+      className="mx-auto sm:w-2/3 lg:w-[40%]"
     >
       <path
         className=" fill-sky-300"
@@ -20,8 +20,8 @@ const Paw = () => {
       <image
         x="250"
         y="180"
-        clip-path="url(#upLeft)"
-        className="fill-[#feeb8a] bg-blend-multiply w-[300px] h-[300px]	"
+        clipPath="url(#upLeft)"
+        className="h-[300px] w-[300px] fill-[#feeb8a] bg-blend-multiply	"
         xlinkHref="upRightDog.png"
       ></image>
 
@@ -37,8 +37,8 @@ const Paw = () => {
       <image
         x="540"
         y="80"
-        clip-path="url(#upRight)"
-        className="fill-[#feeb8a] bg-blend-multiply w-[400px] h-[400px]	"
+        clipPath="url(#upRight)"
+        className="h-[400px] w-[400px] fill-[#feeb8a] bg-blend-multiply	"
         xlinkHref="upLeftDog.png"
       ></image>
 
@@ -54,8 +54,8 @@ const Paw = () => {
       <image
         x="-20"
         y="500"
-        clip-path="url(#bottomLeft)"
-        className="fill-[#feeb8a] bg-blend-multiply w-[250px] h-[250px]	"
+        clipPath="url(#bottomLeft)"
+        className="h-[250px] w-[250px] fill-[#feeb8a] bg-blend-multiply	"
         xlinkHref="bottomRightCat.png"
       ></image>
 
@@ -71,8 +71,8 @@ const Paw = () => {
       <image
         x="710"
         y="520"
-        clip-path="url(#bottomRight)"
-        className="fill-[#feeb8a] bg-blend-multiply w-[520px] h-[520px]	"
+        clipPath="url(#bottomRight)"
+        className="h-[520px] w-[520px] fill-[#feeb8a] bg-blend-multiply	"
         xlinkHref="bottomLeftCat.png"
       ></image>
 
@@ -88,8 +88,8 @@ const Paw = () => {
       <image
         x="420"
         y="820"
-        clip-path="url(#bottomPaw)"
-        className="fill-[#feeb8a] bg-blend-multiply w-96 h-96	"
+        clipPath="url(#bottomPaw)"
+        className="h-96 w-96 fill-[#feeb8a] bg-blend-multiply	"
         xlinkHref="mainDog.png"
       ></image>
     </svg>

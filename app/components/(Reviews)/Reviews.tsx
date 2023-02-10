@@ -41,7 +41,7 @@ const Reviews = () => {
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 24 24"
       fill={fill}
-      className="w-6 h-6"
+      className="h-6 w-6"
     >
       <path
         fillRule="evenodd"
@@ -57,52 +57,45 @@ const Reviews = () => {
     ));
 
   return (
-    <section className=" mb-12  relative">
+    <section className=" relative  mb-12">
       <div className=" flex">
-        <h2 className="text-end ml-auto  text-2xl sm:text-4xl font-medium">
+        <h2 className="ml-auto text-end  text-2xl font-medium sm:text-4xl">
           Valuable words from our customers
         </h2>
       </div>
-      <div className="flex flex-col sm:flex-row justify-between mx-auto w-full sm:w-2/3 gap-x-10 mt-4 ">
+      <div className="mx-auto mt-4 flex w-full flex-col justify-between gap-x-10 sm:w-2/3 sm:flex-row ">
         <div className="relative flex">
-          <div className="relative h-64 w-64 bg-red-500/80 my-auto mx-auto sm:ml-auto z--50 rounded-b-full overflow-hidden">
+          <div className="relative z--20 my-auto mx-auto h-64 w-64 overflow-hidden rounded-b-full bg-error sm:ml-auto">
             <img
               src={review.image}
               alt="happy dog"
-              className="ml-auto z-50 absolute left-1/2  -translate-x-1/2 bottom-0 w-1/2
+              className="absolute left-1/2 bottom-0 z-20  ml-auto w-1/2 -translate-x-1/2
                 "
             />
           </div>
         </div>
         <div className=" flex-1 sm:py-4">
           <div className="flex flex-col ">
-            <div className="text-base relative my-12 p-6 bg-cyan-300/80 rounded-md z-50 font-exo font-light">
-              {/* <div className="w-28 h-28 rounded-full bg-yellow-500/80 absolute bottom-[-50px] right-[-50px] z-[-999]"></div> */}
+            <div className="relative z-20 my-12 rounded-md bg-info p-6 font-exo text-base font-light">
               <p>{review.text}</p>
             </div>
             <div className="flex">{makeStars(review.rating)}</div>
-            <div className="flex gap-x-4 justify-end">
+            <div className="flex justify-end gap-x-4">
               <button
                 className={`px-4 py-2 ${
-                  review.id === ReviewsData[0].id
-                    ? "bg-orange-600"
-                    : "bg-orange-600/50"
+                  review.id === ReviewsData[0].id ? "bg-warning" : "bg-error"
                 }`}
                 onClick={() => setReview(ReviewsData[0] as Review)}
               ></button>
               <button
                 className={`px-4 py-2 ${
-                  review.id === ReviewsData[1].id
-                    ? "bg-orange-600"
-                    : "bg-orange-600/50"
+                  review.id === ReviewsData[1].id ? "bg-warning" : "bg-error"
                 }`}
                 onClick={() => setReview(ReviewsData[1])}
               ></button>
               <button
                 className={`px-4 py-2 ${
-                  review.id === ReviewsData[2].id
-                    ? "bg-orange-600"
-                    : "bg-orange-600/50"
+                  review.id === ReviewsData[2].id ? "bg-warning" : "bg-error"
                 }`}
                 onClick={() => setReview(ReviewsData[2])}
               ></button>

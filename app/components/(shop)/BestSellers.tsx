@@ -90,14 +90,16 @@ const BestSellers = () => {
     <div className=" relative mb-12">
       <div className="flex justify-between">
         <h2 className="text-4xl">Our best Selling Products</h2>
-        <button className="dashedButton rotate-6">See more</button>
+        <button className="btn-outline btn-warning btn ml-auto rounded-full border-4 border-dashed py-2 px-4  font-black">
+          See more
+        </button>
       </div>
       <div
-        className="w-full sm:w-4/5 h-44  bg-purple-400 absolute bottom-10 left-1/2 -translate-x-1/2
- z--50 "
+        className="absolute bottom-10 left-1/2  z--50 h-44 w-full -translate-x-1/2 bg-primary
+ sm:w-4/5 "
       ></div>
 
-      <div className=" snap-mandatory snap-x w-full sm:w-4/5 mx-auto mt-12 flex overflow-x-scroll scroll-smooth gap-x-2 sm:gap-x-10 relative scrollbarClass ">
+      <div className=" scrollbarClass relative mx-auto mt-12 flex w-full snap-x snap-mandatory gap-x-2 overflow-x-scroll scroll-smooth sm:w-4/5 sm:gap-x-10 ">
         {BestProductData.map((product) => (
           <BestTile {...product} />
         ))}

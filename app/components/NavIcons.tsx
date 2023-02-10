@@ -2,7 +2,7 @@ import React from "react";
 
 const NavIcons = ({ size }: { size: number }) => {
   return (
-    <span className="flex text-sm font-maven justify-end  gap-x-2 text-gray-700/90 fill-orange-500 mt-2 px-2 ">
+    <span className="mt-2 flex justify-end gap-x-2  fill-accent px-2 font-maven text-sm ">
       <span className="navbarSVG ">
         <svg
           xmlns="http://www.w3.org/2000/svg"
