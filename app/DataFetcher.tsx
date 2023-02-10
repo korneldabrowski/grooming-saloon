@@ -1,4 +1,6 @@
-import { connectToDatabase } from "@/lib/mongodb";
+import "server-only";
+
+import { connectToDatabase } from "./mongodb";
 import { ObjectId } from "mongodb";
 
 export const revalidate = 3600; // revalidate every hour

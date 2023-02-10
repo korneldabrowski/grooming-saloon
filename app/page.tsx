@@ -1,3 +1,5 @@
+// export const dynamic = "force-dynamic";
+
 import Landing from "./components/Landing";
 import MiniAbout from "./components/MiniAbout";
 import PageDivider from "./components/(MiniAbout)/PageDivider";

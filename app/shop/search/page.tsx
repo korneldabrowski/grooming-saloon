@@ -1,26 +1,28 @@
-// export const dynamic = "force-dynamic";
+export const dynamic = "force-dynamic";
 
 import React from "react";
 import CategoriesWrapper from "../CategoriesWrapper";
 import RecommendedList from "../RecommendedList";
 
-import { getProductByTypes } from "@/components/DataFetcher";
+import { getProductByTypes } from "@/app/DataFetcher";
 
 interface Props {
-  searchParams: {
-    Categories: string;
-    Size: string;
-    Country: string;
-    Pet: string;
-    searchString: string;
+  searchParams?: {
+    Categories?: string;
+    Size?: string;
+    Country?: string;
+    Pet?: string;
+    searchString?: string;
   };
 }
-const Home = async (props: Props): Promise<React.ReactNode> => {
-  let categories = props.searchParams.Categories || "";
-  let size = props.searchParams.Size || "";
-  let country = props.searchParams.Country || "";
-  let pet = props.searchParams.Pet || "";
-  let searchString = props.searchParams.searchString || "";
+export default async function Home(props: Props) {
+  if (!props.searchParams) return;
+
+  const categories: string = props.searchParams.Categories || "";
+  const size: string = props.searchParams.Size || "";
+  const country: string = props.searchParams.Country || "";
+  const pet: string = props.searchParams.Pet || "";
+  const searchString: string = props.searchParams.searchString || "";
 
   const recommendedProductList = JSON.parse(
     JSON.stringify(
@@ -41,6 +43,4 @@ const Home = async (props: Props): Promise<React.ReactNode> => {
       )}
     </div>
   );
-};
-
-export default Home;
+}

@@ -22,7 +22,7 @@ const MiniTile = ({
   rating,
 }: Props) => {
   return (
-    <div className="card-compact card w-96   border-2 hover:scale-110 hover:shadow-2xl">
+    <div className="card card-compact w-96   border-2 hover:scale-110 hover:shadow-2xl">
       <figure>
         <Link href={`/shop/product/${id}`}>
           <img src={image} alt="product picture" />
@@ -33,16 +33,17 @@ const MiniTile = ({
           {name}
           {discounted && (
             <>
-              <span className="badge badge-warning    font-exo font-bold">
+              <span className="badge-warning badge    font-exo font-bold">
                 -{Math.round(((oldPrice - price) / oldPrice) * 100).toFixed(2)}%
               </span>
-              <span className="badge badge-error font-exo font-bold">SALE</span>
+              <span className="badge-error badge font-exo font-bold">SALE</span>
             </>
           )}
         </h2>
         <div className="flex items-center">
           {Array.from({ length: 5 }, (_, i) => (
             <span
+              key={i}
               className={`mask mask-star-2 ${
                 i < Math.round(rating) ? "bg-yellow-300" : "bg-gray-300"
               } p-3`}

@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 
-import { Product } from "../redux/productListSlice";
+import { Product } from "../(redux)/productListSlice";
 
 import ProductTile from "./ProductTile";
 import MiniTile from "./MiniTile";

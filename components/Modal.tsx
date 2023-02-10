@@ -17,7 +17,7 @@ const Modal = () => {
     <article className="prose  ">
       <input type="checkbox" id="my-modal-3" className="modal-toggle" />
 
-      <div className={`modal ${modals[open]} glass`}>
+      <div className={`modal ${modals[open as keyof typeof modals]} glass`}>
         <div className=" modal-box relative bg-info">
           <label
             htmlFor="my-modal-3"

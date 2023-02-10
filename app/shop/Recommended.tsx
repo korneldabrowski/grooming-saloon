@@ -2,7 +2,7 @@ import React from "react";
 
 import RecommendedList from "./RecommendedList";
 
-import { getRecommended } from "@/components/DataFetcher";
+import { getRecommended } from "@/app/DataFetcher";
 
 const Recommended = async (): Promise<React.ReactNode> => {
   const recommendedProductList = JSON.parse(

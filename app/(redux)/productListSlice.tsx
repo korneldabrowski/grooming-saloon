@@ -1,3 +1,4 @@
+"use client";
 import { createSlice, createSelector } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 

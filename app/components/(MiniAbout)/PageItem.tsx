@@ -20,7 +20,15 @@ const PageItem = ({ title, alt, image, color }: Props) => {
   return (
     <div className="flex flex-1 flex-col sm:flex-row sm:gap-x-4 ">
       <div className={`${colorVariants[color]} relative py-8 sm:px-12 sm:py-8`}>
-        <Image fill src={image} alt={alt} className="absolute" />
+        <Image
+          fill
+          src={image}
+          alt={alt}
+          sizes="(max-width: 768px) 10vw,
+              (max-width: 1200px) 5vw,
+              5vw"
+          className="absolute"
+        />
       </div>
       <h3 className="text-md sm:text-2xl">{title} </h3>
     </div>

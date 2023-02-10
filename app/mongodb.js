@@ -1,3 +1,5 @@
+import "server-only";
+
 import { MongoClient } from "mongodb";
 
 const uri = process.env.NEXT_ATLAS_URI;

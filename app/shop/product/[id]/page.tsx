@@ -1,8 +1,10 @@
+export const dynamic = "force-dynamic";
+
 import ProductTile from "../../ProductTile";
 
 import React from "react";
 import SearchBar from "../../SearchBar";
-import { getProductByID } from "@/components/DataFetcher";
+import { getProductByID } from "@/app/DataFetcher";
 import GoBack from "@/components/GoBack";
 
 export default async function Page({ params }: { params: { id: string } }) {
@@ -13,7 +15,7 @@ export default async function Page({ params }: { params: { id: string } }) {
     <div>
       <SearchBar />
       <div className="my-12 flex justify-center text-2xl font-bold">
-        <GoBack />
+        <GoBack color="" />
       </div>
       <div className="mx-auto flex justify-center">
         {product && (

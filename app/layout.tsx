@@ -4,6 +4,8 @@ import { Exo_2 } from "@next/font/google";
 import { Maven_Pro } from "@next/font/google";
 import Footer from "./components/Footer";
 
+import Modal from "@/components/Modal";
+
 const exo_2 = Exo_2({
   subsets: ["latin"],
   variable: "--font-exo",
