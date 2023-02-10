@@ -22,7 +22,7 @@ const MiniTile = ({
   rating,
 }: Props) => {
   return (
-    <div className="card card-compact w-96   border-2 hover:scale-110 hover:shadow-2xl">
+    <div className="card-compact card w-96   border-2 hover:scale-110 hover:shadow-2xl">
       <figure>
         <Link href={`/shop/product/${id}`}>
           <img src={image} alt="product picture" />
