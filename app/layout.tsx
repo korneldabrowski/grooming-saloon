@@ -4,8 +4,6 @@ import { Exo_2 } from "@next/font/google";
 import { Maven_Pro } from "@next/font/google";
 import Footer from "./components/Footer";
 
-import Modal from "@/components/Modal";
-
 const exo_2 = Exo_2({
   subsets: ["latin"],
   variable: "--font-exo",
@@ -25,7 +23,7 @@ export default function RootLayout({
     <html
       lang="en"
       data-theme="bumblebee"
-      className={`${exo_2.variable} font-sans ${maven_pro.variable} scrollbarClass font-sans  `}
+      className={`${exo_2.variable} font-sans ${maven_pro.variable} scrollbarClass  `}
     >
       {/*
         <head /> will contain the components returned by the nearest parent

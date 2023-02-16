@@ -62,7 +62,7 @@ const SearchBar = () => {
             placeholder="Search…"
             className="input-bordered input-accent input  focus:outline-none focus:ring-1 focus:ring-accent	"
           />
-          <button type="submit" className="btn-accent btn-square btn ">
+          <button type="submit" className="btn-primary btn btn-square ">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-6 w-6"
@@ -79,9 +79,6 @@ const SearchBar = () => {
             </svg>
           </button>
         </div>
-        {/* <button type="button" className="btn-ghost btn-xs btn">
-          Clear
-        </button> */}
       </form>
     </div>
   );

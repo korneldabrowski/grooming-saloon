@@ -1,8 +1,10 @@
 import React from "react";
 
-const NavIcons = ({ size }: { size: number }) => {
+const NavIcons = ({ size, color }: { size: number; color?: string }) => {
   return (
-    <span className="mt-2 flex justify-end gap-x-2  fill-accent px-2 font-maven text-sm ">
+    <span
+      className={`mt-2 flex justify-end gap-x-2 fill-accent ${color} px-2 font-maven text-sm `}
+    >
       <span className="navbarSVG ">
         <svg
           xmlns="http://www.w3.org/2000/svg"

@@ -1,10 +1,13 @@
 export const dynamic = "force-dynamic";
 
-import React from "react";
+import React, { Suspense } from "react";
 import CategoriesWrapper from "../CategoriesWrapper";
 import RecommendedList from "../RecommendedList";
 
-import { getProductByTypes } from "@/app/DataFetcher";
+import {
+  getProductByTypes,
+  getSizeOfCollectionByTypes,
+} from "@/app/DataFetcher";
 
 interface Props {
   searchParams?: {
@@ -13,6 +16,7 @@ interface Props {
     Country?: string;
     Pet?: string;
     searchString?: string;
+    page?: number;
   };
 }
 export default async function Home(props: Props) {
@@ -23,24 +27,47 @@ export default async function Home(props: Props) {
   const country: string = props.searchParams.Country || "";
   const pet: string = props.searchParams.Pet || "";
   const searchString: string = props.searchParams.searchString || "";
+  const page: number = props.searchParams.page || 1;
 
   const recommendedProductList = JSON.parse(
     JSON.stringify(
-      await getProductByTypes({ categories, size, country, pet, searchString })
+      await getProductByTypes({
+        categories,
+        size,
+        country,
+        pet,
+        searchString,
+        page,
+      })
     )
   );
 
-  console.log(typeof recommendedProductList + ": all types");
+  const sizeOfCollection = JSON.parse(
+    JSON.stringify(
+      await getSizeOfCollectionByTypes({
+        categories,
+        size,
+        country,
+        pet,
+        searchString,
+      })
+    )
+  );
 
-  console.log(recommendedProductList.length);
   return (
     <div>
       <h1 className=" text-center text-6xl">Search Page</h1>
       <CategoriesWrapper />
 
-      {recommendedProductList && (
-        <RecommendedList noItems={10} products={recommendedProductList} />
-      )}
+      <Suspense fallback={<p className="text-6xl">Loading...</p>}>
+        {recommendedProductList && (
+          <RecommendedList
+            noItems={10}
+            products={recommendedProductList}
+            itemNumber={sizeOfCollection}
+          />
+        )}
+      </Suspense>
     </div>
   );
 }

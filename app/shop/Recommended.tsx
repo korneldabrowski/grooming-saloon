@@ -21,7 +21,11 @@ const Recommended = async (): Promise<React.ReactNode> => {
         Recommended items, just for you!
       </h2>
       <div className="px-numberOfItems mx-auto flex flex-wrap content-center items-stretch justify-center gap-x-10  gap-y-10 pt-12 pb-12">
-        <RecommendedList noItems={4} products={recommendedProductList} />
+        <RecommendedList
+          noItems={4}
+          products={recommendedProductList}
+          itemNumber={10}
+        />
       </div>
     </div>
   );

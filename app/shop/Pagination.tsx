@@ -8,7 +8,7 @@ const Pagination = ({
   scroll,
 }: {
   noItems: number;
-  pageNumber: number;
+  pageNumber: any;
   setPage: (page: number) => void;
   productLength: number;
   scroll: (name: string) => void;
@@ -16,6 +16,7 @@ const Pagination = ({
   const startIndex = (pageNumber - 1) * noItems + 1;
   const endIndex = startIndex + noItems - 1;
   const total = productLength;
+
   return (
     <div>
       <p className="text-center text-sm">
@@ -66,11 +67,8 @@ const Pagination = ({
               placeholder={pageNumber.toString()}
               value={pageNumber.toString()}
               onChange={(e) => {
-                // if (parseInt(e.target.value) >= 1) {
                 setPage(parseInt(e.target.value));
                 scroll("#category");
-
-                // }
               }}
             />
           </form>

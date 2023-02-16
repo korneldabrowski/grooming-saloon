@@ -7,7 +7,7 @@ import BestSellers from "./components/(shop)/BestSellers";
 import Reviews from "./components/(Reviews)/Reviews";
 import Header from "./components/Header";
 
-import Modal from "@/components/Modal";
+import Modal from "./Modal";
 
 export default function Home() {
   return (
@@ -15,7 +15,7 @@ export default function Home() {
       <Modal />
       <Header path="/">
         <>
-          <button className="btn-outline btn-info btn rounded-full border-4 border-dashed p-2  font-black">
+          <button className="btn-outline btn btn-info rounded-full border-4 border-dashed p-2  font-black">
             Book a slot!
           </button>
         </>

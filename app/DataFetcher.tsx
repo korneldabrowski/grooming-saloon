@@ -22,7 +22,7 @@ export async function getRecommended() {
   return recommendedProductList;
 }
 
-export async function getProductByTypes({
+export async function getSizeOfCollectionByTypes({
   categories,
   size,
   country,
@@ -57,11 +57,64 @@ export async function getProductByTypes({
     query["product_name"] = { $regex: new RegExp(searchString, "i") };
   }
 
+  const sizeOfCollection = await collection
+
+    .find(query)
+    .count()
+    .catch((err: Error) => {
+      console.log("Error while retrieving size of collection:", err);
+    });
+
+  return sizeOfCollection;
+}
+
+export async function getProductByTypes({
+  categories,
+  size,
+  country,
+  pet,
+  searchString,
+  page = 1,
+}: {
+  categories: string;
+  size: string;
+  country: string;
+  pet: string;
+  searchString: string;
+  page?: number;
+}) {
+  // @ts-ignore
+  const { database } = await connectToDatabase();
+  const collection = database.collection(process.env.NEXT_ATLAS_COLLECTION);
+
+  const query: Record<string, string> = {};
+  if (pet) {
+    query["pet_types"] = pet;
+  }
+  if (categories) {
+    query["categories"] = categories;
+  }
+  if (size) {
+    query["sizes"] = size;
+  }
+  if (country) {
+    query["countries"] = country;
+  }
+  if (searchString) {
+    // @ts-ignore
+    query["product_name"] = { $regex: new RegExp(searchString, "i") };
+  }
+
+  const pageSize = 10;
+  const skipCount = (page - 1) * pageSize;
+
   const productByTypes = await collection
     .find(query)
+    .skip(skipCount)
+    .limit(pageSize)
     .toArray()
     .catch((err: Error) => {
-      console.log("Error while retrieving  products:", err);
+      console.log("Error while retrieving products:", err);
     });
   return productByTypes;
 }

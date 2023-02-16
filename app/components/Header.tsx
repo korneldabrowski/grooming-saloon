@@ -8,7 +8,7 @@ type Props = {
 
 const Header: React.FC<Props> = ({ children, path }) => {
   return (
-    <div className="navbar glass sticky top-0 z-50 h-14 py-2 text-neutral ">
+    <div className="navbar sticky top-0 z-50 h-16 bg-neutral py-2  text-neutral-content   ">
       <div className="navbar-start  ">
         <div className="dropdown z-50">
           <label tabIndex={0} className="btn-ghost btn lg:hidden">
@@ -69,18 +69,18 @@ const Header: React.FC<Props> = ({ children, path }) => {
           </ul>
         </div>
         <Link href={path}>
-          <span className="btn-ghost btn p-0 text-lg normal-case text-secondary sm:p-2 sm:text-2xl">
+          <span className="btn-ghost btn p-0 text-lg normal-case text-secondary sm:p-2 sm:text-3xl">
             Barktiful Grooming
           </span>
         </Link>
       </div>
       <div className="navbar-center z-50 hidden lg:flex">
-        <ul className="menu menu-horizontal rounded-xl bg-accent/90 px-1  font-medium text-base-100 ">
-          <li>
+        <ul className=" menu menu-horizontal rounded-xl bg-accent/90 px-1 text-lg font-medium   ">
+          <li className="hover:scale-110">
             <Link href="/">Home</Link>{" "}
           </li>
           <li tabIndex={0}>
-            <a>
+            <a className="hover:scale-110 ">
               Navigation
               <svg
                 className="fill-current"
@@ -92,23 +92,23 @@ const Header: React.FC<Props> = ({ children, path }) => {
                 <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
               </svg>
             </a>
-            <ul className=" z-50 bg-accent p-2  shadow-xl">
-              <li>
+            <ul className=" z-50 bg-accent p-2  shadow-xl ">
+              <li className=" hover:scale-110">
                 <Link href="/">Main Page</Link>{" "}
               </li>
-              <li>
+              <li className="hover:scale-110">
                 <Link href="/shop">Shop</Link>{" "}
               </li>
-              <li>
+              <li className="hover:scale-110">
                 <Link href="/shop">About Us</Link>{" "}
               </li>
-              <li>
+              <li className="hover:scale-110">
                 <Link href="/shop">Contact</Link>{" "}
               </li>
             </ul>
           </li>
           <li>
-            <a>Item 3</a>
+            <a className="hover:scale-110">Item 3</a>
           </li>
         </ul>
       </div>

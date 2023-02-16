@@ -6,7 +6,7 @@ import Recommended from "./Recommended";
 
 const HomePage = async () => {
   return (
-    <div className="bg-base-100 py-4">
+    <div className="bg-base-100 py-4 font-maven">
       <Banner />
 
       <CategoriesWrapper />

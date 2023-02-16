@@ -48,12 +48,15 @@ const Category = ({ label, title, items }: CategoryProps) => {
   }
 
   return (
-    <div className="form-control z-20">
+    <div className="form-control z-20 font-exo">
       <label className="label text-end">
         <span className="label-text">{label}</span>
       </label>
-      <div className="dropdown-hover dropdown  ">
-        <label tabIndex={0} className="btn-accent btn m-1 w-32 text-base-100 ">
+      <div className="dropdown dropdown-hover  ">
+        <label
+          tabIndex={0}
+          className="btn-accent btn m-1 w-32 text-base-100 hover:scale-110  "
+        >
           {searchParams.get(label.split(" ")[0]) || title}
         </label>
         <ul
@@ -63,7 +66,7 @@ const Category = ({ label, title, items }: CategoryProps) => {
           {items.map((item) => (
             <li key={item} className="relative">
               <button
-                className="hover:font-semibole  hover:scale-110 hover:bg-accent hover:text-base-100 "
+                className="hover:scale-110  hover:bg-accent hover:font-semibold hover:text-base-100 "
                 onClick={() => {
                   performChange(item, "add");
                 }}
