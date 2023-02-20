@@ -4,12 +4,14 @@ const nextConfig = {
     appDir: true,
   },
   images: {
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "**.unsplash.com",
-      },
-    ],
+    domains: ["picsum.photos", "images.unsplash.com", "images.pexels.com"],
+
+    // remotePatterns: [
+    //   {
+    //     protocol: "https",
+    //     hostname: "**.**.com",
+    //   },
+    // ],
   },
 };
 

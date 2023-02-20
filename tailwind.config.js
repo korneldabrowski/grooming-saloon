@@ -2,6 +2,7 @@ const defaultTheme = require("tailwindcss/defaultTheme");
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  mode: "jit",
   content: ["./app/**/*.{js,ts,jsx,tsx}"],
 
   theme: {
@@ -18,6 +19,7 @@ module.exports = {
       },
       animation: {
         blob: "blob 7s infinite",
+        wiggle: "wiggle 1s  infinite",
       },
       keyframes: {
         blob: {
@@ -33,6 +35,10 @@ module.exports = {
           "100%": {
             transform: "tranlate(0px, 0px) scale(1)",
           },
+        },
+        wiggle: {
+          "0%, 100%": { transform: "translate(0px, 0px) scale(1)" },
+          "50%": { transform: "translate(20px, 0px) scale(0.95)" },
         },
       },
     },

@@ -1,3 +1,4 @@
+"use client";
 import { createSlice } from "@reduxjs/toolkit";
 import { Product } from "./productListSlice";
 
@@ -18,7 +19,10 @@ const pushItem = (state: CounterState, action: { payload: LocalProduct }) => {
   } else {
     existingItem.quantity++;
   }
-  localStorage.setItem("cartState", JSON.stringify(state));
+
+  typeof window !== "undefined"
+    ? localStorage.setItem("cartState", JSON.stringify(state))
+    : null;
 };
 
 const unpushItem = (state: CounterState, action: { payload: LocalProduct }) => {
@@ -37,7 +41,9 @@ const unpushItem = (state: CounterState, action: { payload: LocalProduct }) => {
     ? state.products.splice(existingItemIndex, 1)
     : existingItem.quantity--;
 
-  localStorage.setItem("cartState", JSON.stringify(state));
+  typeof window !== "undefined"
+    ? localStorage.setItem("cartState", JSON.stringify(state))
+    : null;
 };
 
 const setQuantities = (
@@ -50,21 +56,29 @@ const setQuantities = (
   if (existingItem) {
     existingItem.quantity = quantity;
   }
-  localStorage.setItem("cartState", JSON.stringify(state));
+
+  typeof window !== "undefined"
+    ? localStorage.setItem("cartState", JSON.stringify(state))
+    : null;
 };
 
 export interface CounterState {
   products: LocalProduct[];
 }
 
-const cartStateString = localStorage.getItem("cartState");
+const cartStateString =
+  typeof window !== "undefined" ? localStorage.getItem("cartState") : null;
 
-const cartState = cartStateString
-  ? JSON.parse(cartStateString)?.products ?? []
-  : [];
+if (typeof window !== "undefined") {
+  // Perform localStorage action
+  var data =
+    typeof window !== "undefined" && cartStateString
+      ? JSON.parse(cartStateString).products
+      : [];
+}
 
 const initialState: CounterState = {
-  products: cartState,
+  products: data,
 };
 
 export const cartSlice = createSlice({

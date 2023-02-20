@@ -2,6 +2,7 @@ import React from "react";
 
 import Link from "next/link";
 import Image from "next/image";
+import scroll from "@/lib/scrollTo";
 
 const shimmer = (w: number, h: number) => `
 <svg width="${w}" height="${h}" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -42,20 +43,22 @@ const MiniTile = ({
   rating,
 }: Props) => {
   return (
-    <div className="card card-compact border-2 hover:scale-105 hover:shadow-2xl">
+    <div className="card card-compact max-w-xs rounded-md  border-2 ">
       <figure>
-        <Link href={`/shop/product/${id}`}>
+        <Link onClick={scroll} href={`/shop/product/${id}`}>
           <Image
             width={400}
             height={300}
-            quality={40}
+            quality={70}
             // loading="lazy"
             placeholder="blur"
             blurDataURL={`data:image/svg+xml;base64,${toBase64(
               shimmer(400, 300)
             )}`}
-            src={`https://source.unsplash.com/400x300/?${name}`}
+            // src={`https://source.unsplash.com/400x300/?${name}`}
+            src={image}
             alt="product picture"
+            className="transition duration-500 hover:scale-110 sm:h-72"
           />
         </Link>
       </figure>
@@ -64,10 +67,10 @@ const MiniTile = ({
           <Link href={`/shop/product/${id}`}>{name}</Link>
           {discounted && (
             <>
-              <span className="badge badge-warning    font-exo font-bold">
+              <span className="badge-warning badge    font-exo font-bold">
                 -{Math.round(((oldPrice - price) / oldPrice) * 100).toFixed(2)}%
               </span>
-              <span className="badge badge-error font-exo font-bold">SALE</span>
+              <span className="badge-error badge font-exo font-bold">SALE</span>
             </>
           )}
         </h2>
@@ -92,8 +95,8 @@ const MiniTile = ({
           </p>
         )}
 
-        <div className="card-actions mt-auto justify-end pt-4">
-          <p className="text-start text-xs font-bold text-neutral">
+        <div className="card-actions mt-auto justify-center pt-4">
+          <p className="text-end text-xs font-bold text-neutral">
             {discounted && (
               <span className="text-start  text-4xl font-bold  text-error">
                 <span className="text-sm font-bold text-neutral line-through">
@@ -110,7 +113,9 @@ const MiniTile = ({
             <span className="text-xs ">PLN</span>
           </p>
           <Link href={`/shop/product/${id}`}>
-            <button className=" btn btn-info hover:scale-110 ">View</button>
+            <button className=" btn btn-primary btn-wide hover:scale-110 ">
+              View
+            </button>
           </Link>
         </div>
       </div>

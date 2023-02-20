@@ -1,8 +1,7 @@
 export const dynamic = "force-dynamic";
 
 import React, { Suspense } from "react";
-import CategoriesWrapper from "../CategoriesWrapper";
-import RecommendedList from "../RecommendedList";
+import RecommendedList from "./SearchList";
 
 import {
   getProductByTypes,
@@ -56,17 +55,16 @@ export default async function Home(props: Props) {
 
   return (
     <div>
-      <h1 className=" text-center text-6xl">Search Page</h1>
-      <CategoriesWrapper />
+      <h3 id="category" className=" text-center text-2xl">
+        Search...
+      </h3>
 
       <Suspense fallback={<p className="text-6xl">Loading...</p>}>
-        {recommendedProductList && (
-          <RecommendedList
-            noItems={10}
-            products={recommendedProductList}
-            itemNumber={sizeOfCollection}
-          />
-        )}
+        <RecommendedList
+          noItems={10}
+          products={recommendedProductList}
+          itemNumber={sizeOfCollection}
+        />
       </Suspense>
     </div>
   );

@@ -3,23 +3,117 @@ import "server-only";
 import { connectToDatabase } from "./mongodb";
 import { ObjectId } from "mongodb";
 
-export const revalidate = 3600; // revalidate every hour
-
 export async function getRecommended() {
   //@ts-ignore
   const { database } = await connectToDatabase();
   const collection = database.collection(process.env.NEXT_ATLAS_COLLECTION);
 
-  const recommendedProductList = await collection
-    .find({
-      rating: { $gt: 4.8 },
-      discounted: true,
-    })
+  const discountedProductList = await collection
+    .aggregate([
+      {
+        $match: {
+          rating: { $gt: 4.5 },
+          discounted: true,
+        },
+      },
+      {
+        $addFields: {
+          discount: {
+            $multiply: [
+              { $subtract: ["$old_price", "$price"] },
+              100,
+              { $divide: [1, "$old_price"] },
+            ],
+          },
+        },
+      },
+      {
+        $match: {
+          discount: { $gte: 40 },
+        },
+      },
+    ])
+    .limit(10)
     .toArray()
     .catch((err: Error) => {
       console.log("Error while retrieving recommended products:", err);
     });
-  return recommendedProductList;
+
+  return discountedProductList;
+}
+
+export async function getRecommendedByQuery({
+  categories,
+  size,
+  country,
+  pet,
+  searchString,
+  rating,
+  discount,
+}: {
+  categories?: string;
+  size?: string;
+  country?: string;
+  pet?: string;
+  searchString?: string;
+  rating?: number;
+  discount?: number;
+}) {
+  //@ts-ignore
+  const { database } = await connectToDatabase();
+  const collection = database.collection(process.env.NEXT_ATLAS_COLLECTION);
+
+  const query: Record<string, string> = {};
+  if (pet) {
+    query["pet_types"] = pet;
+  }
+  if (categories) {
+    query["categories"] = categories;
+  }
+  if (size) {
+    query["sizes"] = size;
+  }
+  if (country) {
+    query["countries"] = country;
+  }
+  if (searchString) {
+    // @ts-ignore
+    query["product_name"] = { $regex: new RegExp(searchString, "i") };
+  }
+
+  const discountedProductList = await collection
+
+    .aggregate([
+      {
+        $match: {
+          rating: { $gt: 4.1 },
+          discounted: true,
+        },
+      },
+      {
+        $addFields: {
+          discount: {
+            $multiply: [
+              { $subtract: ["$old_price", "$price"] },
+              100,
+              { $divide: [1, "$old_price"] },
+            ],
+          },
+        },
+      },
+      {
+        $match: {
+          discount: { $gte: discount },
+        },
+      },
+    ])
+    .limit(10)
+    .toArray()
+    .catch((err: Error) => {
+      console.log("Error while retrieving recommended products:", err);
+    });
+
+  return discountedProductList;
 }
 
 export async function getSizeOfCollectionByTypes({

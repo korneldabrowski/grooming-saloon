@@ -1,7 +1,13 @@
 "use client";
+
 import React, { useState } from "react";
+import SearchBar from "../SearchBar";
 import Category from "./Category";
-import SearchBar from "./SearchBar";
+interface CategoryProps {
+  label: string;
+  title: string;
+  items: string[];
+}
 
 const Categories = ({
   categoriess,
@@ -42,10 +48,10 @@ const Categories = ({
   ];
 
   return (
-    <div id="category" className="  pt-12 ">
-      <div className="relative  grid max-w-fit grid-cols-2 gap-x-2 sm:mr-auto sm:flex sm:flex-row ">
-        {categories.map(({ label, title, items, setTitle }) => (
-          <Category key={label} items={items} title={title} label={label} />
+    <div className="   ">
+      <div className=" flex flex-col gap-y-4">
+        {categories.map(({ label, title, items }) => (
+          <Category key={label} label={label} title={title} items={items} />
         ))}
       </div>
     </div>

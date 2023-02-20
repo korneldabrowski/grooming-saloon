@@ -3,7 +3,7 @@ import Image from "next/image";
 import GoBack from "./GoBack";
 const ItemNotFound = () => {
   return (
-    <div className="relative mx-auto my-36 flex flex-col justify-center px-4 sm:flex-row ">
+    <div className="relative mx-auto my-36 flex flex-col justify-center  px-4 sm:flex-row ">
       <div className="flex flex-col text-center align-bottom  sm:items-end">
         <h2 className=" text-xl ">
           Oopsie...We could not find what

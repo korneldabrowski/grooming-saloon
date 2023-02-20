@@ -2,7 +2,7 @@ import React from "react";
 
 import Link from "next/link";
 import AddItem from "./AddItem";
-import { Product } from "../(redux)/productListSlice";
+import { Product } from "../../components/store/productListSlice";
 
 const ProductTile: React.FC<Product> = (product) => {
   return (
@@ -71,7 +71,7 @@ const ProductTile: React.FC<Product> = (product) => {
 
           {product.discounted && (
             <p className=" mt-0">
-              <span className="badge-warning badge badge-lg   font-exo font-bold">
+              <span className="badge badge-warning badge-lg   font-exo font-bold">
                 -
                 {Math.round(
                   ((product.old_price - product.price) / product.old_price) *
@@ -79,7 +79,7 @@ const ProductTile: React.FC<Product> = (product) => {
                 ).toFixed(2)}
                 %
               </span>
-              <span className="badge-error badge badge-lg   font-exo font-bold">
+              <span className="badge badge-error badge-lg   font-exo font-bold">
                 SALE
               </span>
             </p>

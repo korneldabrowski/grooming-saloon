@@ -1,19 +1,29 @@
 "use client";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
-import { RootState } from "../(redux)/store";
+import { RootState } from "../../components/store/store";
+import { LocalProduct } from "../../components/store/cartSlice";
 
 const CartAmount = () => {
-  const numberOfCartItems = useSelector((state: RootState) =>
-    state.cart.products.reduce((curNumber, item) => {
-      return curNumber + item.quantity;
-    }, 0)
+  const [numItems, setNumItems] = useState<number>(0);
+  const cartProducts = useSelector<RootState, LocalProduct[]>(
+    (state) => state.cart.products
   );
 
+  useEffect(() => {
+    if (cartProducts) {
+      const totalItems = cartProducts.reduce(
+        (acc, curr) => acc + curr.quantity,
+        0
+      );
+      setNumItems(totalItems);
+    }
+  }, [cartProducts]);
+
   return (
-    <span className="badge-warning badge badge-sm indicator-item">
-      {numberOfCartItems || 0}
-    </span>
+    <div className="badge badge-warning badge-sm indicator-item">
+      {numItems}
+    </div>
   );
 };
 

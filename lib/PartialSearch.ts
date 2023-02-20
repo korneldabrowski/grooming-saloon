@@ -1,3 +1,13 @@
+export interface PartialSearchProps {
+  size: string;
+  country: string;
+  categories: string;
+  pet: string;
+  label: string;
+  searchString: string;
+  page: string;
+}
+
 export default function PartialSearch({
   size = "",
   categories = "",
@@ -6,7 +16,7 @@ export default function PartialSearch({
   searchString = "",
   label = "",
   page = "1",
-}) {
+}: PartialSearchProps) {
   let sLabel = label.split(" ")[0];
 
   let url = "";

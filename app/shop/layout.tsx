@@ -41,8 +41,6 @@ export default function ShopLayout({
         <MiniHeader />
 
         {children}
-
-        {/* {children} */}
       </section>
     </Providers>
   );

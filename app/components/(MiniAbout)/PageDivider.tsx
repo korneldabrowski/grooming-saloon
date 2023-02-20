@@ -39,17 +39,15 @@ const PageDividerData = [
 const PageDivider = () => {
   return (
     <section className="flex flex-wrap justify-around gap-y-10 gap-x-10 p-4 sm:px-20 lg:gap-x-40">
-      {PageDividerData.map((item) => {
-        return (
-          <PageItem
-            title={item.title}
-            image={item.image}
-            alt={item.alt}
-            color={item.color}
-            key={item.title}
-          />
-        );
-      })}
+      {PageDividerData.map((item) => (
+        <PageItem
+          key={item.title}
+          title={item.title}
+          image={item.image}
+          alt={item.alt}
+          color={item.color}
+        />
+      ))}
     </section>
   );
 };

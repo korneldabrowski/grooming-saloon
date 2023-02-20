@@ -2,6 +2,7 @@
 
 import React from "react";
 import { useRouter } from "next/navigation";
+import scroll from "@/lib/scrollTo";
 
 export default function GoBack({ color = "sucess" }: { color: string }) {
   const colorVariants: { [key: string]: string } = {
@@ -19,6 +20,7 @@ export default function GoBack({ color = "sucess" }: { color: string }) {
   const perfmormGoback = () => {
     router.back();
     setTimeout(() => {
+      scroll();
       router.refresh();
     }, 10);
   };

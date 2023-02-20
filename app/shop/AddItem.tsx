@@ -1,11 +1,11 @@
 "use client";
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { addItem, CounterState } from "../(redux)/cartSlice";
-import { Product } from "../(redux)/productListSlice";
+import { addItem, CounterState } from "../../components/store/cartSlice";
+import { Product } from "../../components/store/productListSlice";
 import { useInterval } from "usehooks-ts";
 import { useSelector } from "react-redux";
-import { RootState } from "../(redux)/store";
+import { RootState } from "../../components/store/store";
 
 const AddItem = ({ product }: { product: Product }) => {
   const [quantity, setQuantity] = useState(1);

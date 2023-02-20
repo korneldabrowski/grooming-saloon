@@ -1,132 +1,120 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useRef } from "react";
 
-import { Product } from "../(redux)/productListSlice";
+import { Product } from "../../components/store/productListSlice";
 
 import MiniTile from "./MiniTile";
-import Pagination from "./Pagination";
 import ItemNotFound from "@/components/ItemNotFound";
-
-import { useSearchParams, useRouter } from "next/navigation";
-
-import scroll from "@/lib/scrollTo";
-import PartialSearch from "@/lib/PartialSearch";
-
-interface PartialSearchProps {
-  size: string;
-  country: string;
-  categories: string;
-  pet: string;
-}
+import Link from "next/link";
 
 const RecommendedList = ({
   products,
   noItems,
-  itemNumber,
+  title,
+  description,
+  order,
+  search,
 }: {
   products: Product[];
   noItems: number;
-  itemNumber: number;
+  title: string;
+  description: string;
+  order: string;
+  search: string;
 }) => {
-  const numberOfItems = noItems;
+  const scrollableRef = useRef<HTMLUListElement>(null);
 
   // If there are no products found, return the ItemNotFound component
   if (products.length === 0) return <ItemNotFound />;
 
-  // Below code is temporary for as long as the NextJS 13 is in beta and the documentation is incomplete
-  // Get the search parameters
-  const searchParams = useSearchParams();
+  const orderVariants: Record<string, string> = {
+    first: "sm:order-first",
+    last: "sm:order-last",
+  };
 
-  // Set the size, country, categories, pet, and searchString to the value
-  // from the search parameters, or null if that parameter is not set
-  let size = searchParams.get("Size") || null;
-  let country = searchParams.get("Country") || null;
-  let categories = searchParams.get("Categories") || null;
-  let pet = searchParams.get("Pet") || null;
-  let searchString = searchParams.get("searchString") || null;
-  let page = searchParams.get("page") || 1;
-
-  const [pageNumber, setPageNumber] = useState(page);
-
-  // When the size, country, categories, pet, or searchString changes,
-  // reset the page number
-  useEffect(() => {
-    setPageNumber(page);
-  }, [size, country, categories, pet, searchString]);
-
-  // Set the page number to the correct value if it is NaN or a negative number
-  // or greater than the number of pages.
-
-  const router = useRouter();
-
-  function performChange(item: number = 1, action: string) {
-    //this makes sure that user can't go to a page that doesn't exist,
-    // for example page 0 or page 1000
-    if (item <= 0 || item > Math.ceil(itemNumber / numberOfItems)) return;
-
-    let size = searchParams.get("Size") || null;
-    let country = searchParams.get("Country") || null;
-    let categories = searchParams.get("Categories") || null;
-    let pet = searchParams.get("Pet") || null;
-    let searchString = searchParams.get("searchString") || null;
-    let page = searchParams.get("page") || 1;
-
-    let url = PartialSearch({
-      size,
-      country,
-      categories,
-      pet,
-      searchString,
-      page,
-    } as PartialSearchProps);
-
-    setPageNumber(item);
-
-    router.push("shop/search?" + "page=" + item + "&" + url);
+  function handleClick() {
+    if (scrollableRef.current) {
+      // Move the scrollbar bit to the right
+      scrollableRef.current.scrollBy({
+        left: 330,
+        behavior: "smooth",
+      });
+    }
   }
 
-  useEffect(() => {
-    if (Number.isNaN(pageNumber)) {
-      setPageNumber(pageNumber);
-      return;
-    }
-
-    if (pageNumber <= 1) {
-      setPageNumber(1);
-      return;
-    }
-    if (pageNumber > itemNumber / numberOfItems) {
-      setPageNumber(Math.ceil(itemNumber / numberOfItems));
-      return;
-    }
-  }, [pageNumber]);
-
   return (
-    <div className="">
-      <div className="px-numberOfItems mx-auto flex flex-wrap content-center items-stretch justify-center gap-x-10  gap-y-10 pt-12 pb-12">
-        {products.map((product: Product) => {
-          return (
-            <MiniTile
-              key={product._id}
-              id={product._id}
-              name={product.product_name}
-              price={product.price}
-              oldPrice={product.old_price}
-              discounted={product.discounted}
-              image={product.product_image}
-              rating={product.rating}
-            />
-          );
-        })}
+    <section className="relative mx-auto flex w-full content-center  items-stretch  justify-center gap-x-10 gap-y-10 pt-12  pb-12 ">
+      <div className=" mx-auto max-w-screen-2xl px-4 py-8 sm:py-12 sm:px-6 lg:px-8">
+        <div className=" grid grid-cols-1 gap-4 lg:grid-cols-3 lg:items-stretch ">
+          <div
+            className={` relative grid place-content-center rounded bg-primary/70 p-6 sm:p-8 ${orderVariants[order]} `}
+          >
+            <div className="mx-auto max-w-md text-center lg:text-left">
+              <header>
+                <h2 className="text-xl font-bold text-neutral sm:text-3xl ">
+                  {title || "Recommended"}
+                </h2>
+
+                <p className="mt-4 text-base-content">
+                  {description
+                    ? description
+                    : "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quas rerum quam amet provident nulla error!"}
+                </p>
+              </header>
+
+              <Link
+                href={`shop/search?Pet=${search}`}
+                className="btn-neutral btn-wide btn  mt-4  text-base-100"
+              >
+                Shop All
+              </Link>
+            </div>
+          </div>
+
+          <div className=" relative border-2 border-r-0 border-l-0 border-secondary shadow-sm lg:col-span-2 lg:py-8">
+            <button
+              onClick={handleClick}
+              className="absolute top-1/2 right-0 z-20  transform animate-wiggle cursor-pointer text-info"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth="3"
+                stroke="currentColor"
+                className="h-12 w-12"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M8.25 4.5l7.5 7.5-7.5 7.5"
+                />
+              </svg>
+            </button>
+
+            <ul
+              ref={scrollableRef}
+              className="scrollbarClass relative  grid grid-cols-2 overflow-x-scroll p-10"
+            >
+              <li className=" flex gap-x-4   sm:gap-x-10">
+                {products.map((product: Product) => (
+                  <MiniTile
+                    key={product._id}
+                    id={product._id}
+                    name={product.product_name}
+                    price={product.price}
+                    oldPrice={product.old_price}
+                    discounted={product.discounted}
+                    image={product.product_image}
+                    rating={product.rating}
+                  />
+                ))}
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
-      <Pagination
-        noItems={numberOfItems}
-        pageNumber={pageNumber}
-        setPage={performChange}
-        productLength={itemNumber}
-        scroll={scroll}
-      />
-    </div>
+    </section>
   );
 };
 

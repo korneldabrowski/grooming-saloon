@@ -1,8 +1,8 @@
 "use client";
-import { Product } from "@/app/(redux)/productListSlice";
+import { Product } from "@/components/store/productListSlice";
 import React, { useState } from "react";
 import Link from "next/link";
-import { setItemQuantity } from "../../(redux)/cartSlice";
+import { setItemQuantity } from "../../../components/store/cartSlice";
 import { useDispatch } from "react-redux";
 
 const TableItem = ({
@@ -40,12 +40,22 @@ const TableItem = ({
           Size: {product.sizes && product.sizes.split("_").join(" ")}
           <br />
           Country: {product.countries}
+          <br />
+          Pet Type: {product.pet_types}
         </div>
       </div>
-      <div className="flex flex-row items-center justify-start lg:flex-col">
+      <div className="flex flex-col items-start justify-start lg:flex-col lg:items-center">
         Each:
-        <span className=" font-bold">
-          <span className="label-text-alt items-center font-medium">PLN </span>
+        {product.discounted && (
+          <span className=" text-xs font-bold  line-through	">
+            <span className="label-text-alt items-center font-medium">
+              PLN{" "}
+            </span>
+            {product.old_price.toFixed(2)}
+          </span>
+        )}
+        <span className={` font-bold ${product.discounted && "text-red-500"}`}>
+          <span className="label-text-alt items-center font-medium ">PLN </span>
           {product.price.toFixed(2)}
         </span>
       </div>
@@ -56,7 +66,7 @@ const TableItem = ({
           onChange={handleSelect}
           value={quantityState}
         >
-          <option disabled selected>
+          <option disabled defaultValue={quantityState}>
             {quantityState}
           </option>
           {[...Array(5)].map((_, i) => (
@@ -66,20 +76,23 @@ const TableItem = ({
           ))}
         </select>
       </div>
-      <div className="flex items-center justify-start lg:flex-col">
+      <div className="flex justify-start sm:items-center lg:flex-col">
         Total Price:
-        <p className=" font-bold">
-          <span className="label-text-alt font-medium">PLN </span>
+        <span className=" font-bold">
+          <span className="label-text-alt items-center font-medium">PLN </span>
           {(product.price * quantityState).toFixed(2)}
-        </p>
-        <label htmlFor={product._id} className="w-full  ">
+        </span>
+        <label
+          htmlFor={product._id}
+          className="ml-auto flex cursor-pointer justify-end"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
             strokeWidth="1.5"
             stroke="currentColor"
-            className="ml-auto h-6 w-6 cursor-pointer  hover:stroke-red-500 lg:mx-auto"
+            className=" h-6 w-6   hover:stroke-red-500 lg:mx-auto"
           >
             <path
               strokeLinecap="round"

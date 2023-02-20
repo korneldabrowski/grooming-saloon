@@ -6,13 +6,13 @@ import Paw from "./Paw";
 const Landing = () => {
   return (
     <div className=" p-2 text-neutral">
-      <div className="divider"> </div>
+      <div className="divider"></div>
       <NavIcons size={24} />
       <div className="mt-6 whitespace-pre-line text-center font-maven text-3xl font-semibold sm:px-36 sm:text-6xl">
-        <h1 className=" ">
+        <h2 className=" ">
           <span className="rounded-full bg-info py-2 px-4">Paw-fect</span>
           grooming for your <br />
-        </h1>
+        </h2>
         <p className="inline-block w-auto  -rotate-[6deg] rounded-full bg-success   py-2 px-4 sm:my-6">
           furry friend
         </p>
@@ -32,18 +32,18 @@ const Landing = () => {
 
         <Paw />
         <div className="relative mt-4 flex flex-row flex-wrap justify-between text-base  lg:absolute lg:right-0 lg:top-0 lg:flex-col lg:gap-y-5">
-          <h1 className="heroElements ">
+          <h3 className="heroElements ">
             Expert
             <br /> grooming
-          </h1>
-          <h1 className=" heroElements">
+          </h3>
+          <h3 className=" heroElements">
             Personalized
             <br /> care
-          </h1>
-          <h1 className="heroElements">
+          </h3>
+          <h3 className="heroElements">
             Eco-friendly
             <br /> products
-          </h1>
+          </h3>
         </div>
       </div>
     </div>

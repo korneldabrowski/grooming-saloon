@@ -1,32 +1,74 @@
 import React from "react";
 
-import RecommendedList from "./RecommendedList";
+import MainSection from "./MainSection";
 
-import { getRecommended } from "@/app/DataFetcher";
+import { getRecommended, getRecommendedByQuery } from "@/app/DataFetcher";
 
-const Recommended = async (): Promise<React.ReactNode> => {
+async function getRecommendedItems() {
   const recommendedProductList = JSON.parse(
     JSON.stringify(await getRecommended())
   );
+  return recommendedProductList;
+}
 
-  if (!recommendedProductList) return <div>loadings...</div>;
-  if (recommendedProductList.length === 0)
-    return <div>No recommended items were found...</div>;
+async function getRecommendedDogItems() {
+  const recommendedProductList = JSON.parse(
+    JSON.stringify(
+      await getRecommendedByQuery({
+        pet: "dog",
+        discount: 40,
+      })
+    )
+  );
+  return recommendedProductList;
+}
 
-  console.log(typeof recommendedProductList + ": my types");
+async function getRecommendedHamsterItems() {
+  const recommendedProductList = JSON.parse(
+    JSON.stringify(
+      await getRecommendedByQuery({
+        pet: "hamster",
+        discount: 40,
+      })
+    )
+  );
+  return recommendedProductList;
+}
+
+const Recommended = async (): Promise<React.ReactNode> => {
+  const recommendedProductList = await getRecommendedItems();
+  const recommendedDogProductList = await getRecommendedDogItems();
+  const recommendedHamsterProductList = await getRecommendedHamsterItems();
+
+  if (
+    !recommendedProductList ||
+    !recommendedDogProductList ||
+    !recommendedHamsterProductList
+  )
+    return <div>loading...</div>;
 
   return (
-    <div className="">
-      <h2 id="recommended" className="p-numberOfItems  text-4xl font-semibold">
-        Recommended items, just for you!
-      </h2>
-      <div className="px-numberOfItems mx-auto flex flex-wrap content-center items-stretch justify-center gap-x-10  gap-y-10 pt-12 pb-12">
-        <RecommendedList
-          noItems={4}
-          products={recommendedProductList}
-          itemNumber={10}
-        />
-      </div>
+    <div className="mt-6">
+      <MainSection
+        products={recommendedProductList}
+        header="Recommended"
+        title="The best offers, picked just for you!"
+      />
+      <MainSection
+        products={recommendedDogProductList}
+        header="Recommended dog products"
+        title="Check out our top dog products"
+        order="last"
+        search="dog"
+      />
+
+      <MainSection
+        products={recommendedHamsterProductList}
+        header="Recommended hamster products"
+        title="Check out our top hamster products"
+        order="first"
+        search="hamster"
+      />
     </div>
   );
 };

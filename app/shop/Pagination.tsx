@@ -5,13 +5,11 @@ const Pagination = ({
   pageNumber,
   setPage,
   productLength,
-  scroll,
 }: {
   noItems: number;
   pageNumber: any;
   setPage: (page: number) => void;
   productLength: number;
-  scroll: (name: string) => void;
 }) => {
   const startIndex = (pageNumber - 1) * noItems + 1;
   const endIndex = startIndex + noItems - 1;
@@ -37,7 +35,7 @@ const Pagination = ({
             className="btn-outline btn  "
             onClick={() => {
               setPage(pageNumber - 1);
-              scroll("#category");
+              scroll();
             }}
           >
             <svg
@@ -58,7 +56,7 @@ const Pagination = ({
             onSubmit={(e) => {
               e.preventDefault();
               setPage(pageNumber);
-              scroll("#category");
+              scroll();
             }}
           >
             <input
@@ -68,7 +66,7 @@ const Pagination = ({
               value={pageNumber.toString()}
               onChange={(e) => {
                 setPage(parseInt(e.target.value));
-                scroll("#category");
+                scroll();
               }}
             />
           </form>
@@ -77,7 +75,7 @@ const Pagination = ({
             className="btn-outline btn  "
             onClick={() => {
               setPage(pageNumber + 1);
-              scroll("#category");
+              scroll();
             }}
           >
             <svg

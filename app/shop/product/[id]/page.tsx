@@ -18,23 +18,7 @@ export default async function Page({ params }: { params: { id: string } }) {
         <GoBack color="" />
       </div>
       <div className="mx-auto flex justify-center">
-        {product && (
-          <ProductTile
-            // key={product._id}
-            // id={product._id}
-            // name={product.product_name}
-            // description={product.product_description}
-            // category={product.categories}
-            // price={product.price}
-            // pet_type={product.pet_type}
-            // countries={produict.countries}
-            // discounted={product.discounted}
-            // oldPrice={product.old_price}
-            // image={product.product_image}
-            // rating={product.rating}
-            {...product}
-          />
-        )}
+        {product && <ProductTile {...product} />}
       </div>
     </div>
   );
