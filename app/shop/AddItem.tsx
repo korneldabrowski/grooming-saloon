@@ -1,25 +1,34 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { addItem, CounterState } from "../../components/store/cartSlice";
 import { Product } from "../../components/store/productListSlice";
 import { useInterval } from "usehooks-ts";
 import { useSelector } from "react-redux";
 import { RootState } from "../../components/store/store";
+import { LocalProduct } from "../../components/store/cartSlice";
 
 const AddItem = ({ product }: { product: Product }) => {
+  const [myProduct, setMyProduct] = useState<LocalProduct>();
   const [quantity, setQuantity] = useState(1);
   const [isAdded, setIsAdded] = useState(false);
   const [tooMany, setTooMany] = useState(false);
 
-  const getProduct = useSelector((state: RootState) =>
-    state.cart.products.find((item: Product) => item._id === product._id)
+  const productsState = useSelector<RootState, LocalProduct[]>(
+    (state) => state.cart.products
   );
+
+  useEffect(() => {
+    const productFound = productsState.find((p) => p._id === product._id);
+    if (productFound) {
+      setMyProduct(productFound);
+    }
+  }, [productsState]);
 
   const dispatch = useDispatch();
 
   const addToCartHandler = () => {
-    if (getProduct && getProduct.quantity + quantity > 5) {
+    if (myProduct && myProduct.quantity + quantity > 5) {
       setTooMany(true);
       return;
     }

@@ -50,12 +50,10 @@ const MiniTile = ({
             width={400}
             height={300}
             quality={70}
-            // loading="lazy"
             placeholder="blur"
             blurDataURL={`data:image/svg+xml;base64,${toBase64(
               shimmer(400, 300)
             )}`}
-            // src={`https://source.unsplash.com/400x300/?${name}`}
             src={image}
             alt="product picture"
             className="transition duration-500 hover:scale-110 sm:h-72"
@@ -113,7 +111,7 @@ const MiniTile = ({
             <span className="text-xs ">PLN</span>
           </p>
           <Link href={`/shop/product/${id}`}>
-            <button className=" btn btn-primary btn-wide hover:scale-110 ">
+            <button className=" btn-primary btn-wide btn hover:scale-110 ">
               View
             </button>
           </Link>

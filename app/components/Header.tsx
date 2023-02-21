@@ -9,12 +9,12 @@ type Props = {
 
 const Header: React.FC<Props> = ({ children, path }) => {
   return (
-    <nav className="navbar sticky top-0 z-[999] h-16 bg-neutral py-2 text-neutral-content sm:px-6   ">
+    <nav className="navbar sticky top-0 z-[999] h-16 bg-neutral p-0 py-2 text-neutral-content sm:px-6   ">
       <div className="mr-auto  ">
-        <div className="dropdown z-50 lg:hidden">
-          <ul className="menu menu-horizontal bg-neutral px-1">
+        <div className="dropdown z-50 max-w-fit  lg:hidden">
+          <ul className="menu menu-horizontal bg-neutral ">
             <li tabIndex={0}>
-              <a>
+              <a className="px-1 sm:px-4">
                 Menu
                 <svg
                   className="fill-current"
@@ -43,7 +43,7 @@ const Header: React.FC<Props> = ({ children, path }) => {
             </li>
           </ul>
         </div>
-        <h1 className="btn-ghost btn basis-full p-0 text-xl normal-case text-secondary sm:p-2 sm:text-3xl">
+        <h1 className="btn-ghost btn max-w-fit p-0 text-xl normal-case text-secondary sm:basis-full sm:p-2 sm:text-3xl">
           <Link href={path}>Barktiful Grooming</Link>
         </h1>
       </div>
@@ -93,7 +93,7 @@ const Header: React.FC<Props> = ({ children, path }) => {
           )}
         </ul>
       </div>
-      <div className="ml-auto flex">{children}</div>
+      <div className="ml-auto flex ">{children}</div>
     </nav>
   );
 };
