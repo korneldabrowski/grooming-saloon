@@ -7,6 +7,7 @@ import SearchBar from "../../SearchBar";
 import { getProductByID } from "@/app/DataFetcher";
 import GoBack from "@/components/GoBack";
 import ProductAdditionalInfo from "./ProductAdditionalInfo";
+import SimilarItems from "./SimilarItems";
 
 export default async function Page({ params }: { params: { id: string } }) {
   const product = JSON.parse(
@@ -25,6 +26,7 @@ export default async function Page({ params }: { params: { id: string } }) {
             <ProductAdditionalInfo />
           </>
         )}
+        <SimilarItems category={product.categories} pet={product.pet} />
       </div>
     </div>
   );

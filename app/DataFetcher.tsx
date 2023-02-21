@@ -170,11 +170,11 @@ export async function getProductByTypes({
   searchString,
   page = 1,
 }: {
-  categories: string;
-  size: string;
-  country: string;
-  pet: string;
-  searchString: string;
+  categories?: string;
+  size?: string;
+  country?: string;
+  pet?: string;
+  searchString?: string;
   page?: number;
 }) {
   // @ts-ignore
@@ -204,6 +204,7 @@ export async function getProductByTypes({
 
   const productByTypes = await collection
     .find(query)
+    .sort({ rating: -1 }) // Sort by rating
     .skip(skipCount)
     .limit(pageSize)
     .toArray()
