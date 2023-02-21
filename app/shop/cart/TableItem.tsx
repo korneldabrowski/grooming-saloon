@@ -2,7 +2,7 @@
 import { Product } from "@/components/store/productListSlice";
 import React, { useState } from "react";
 import Link from "next/link";
-import { setItemQuantity } from "../../../components/store/cartSlice";
+import { setItemQuantity } from "@/components/store/cartSlice";
 import { useDispatch } from "react-redux";
 
 const TableItem = ({

@@ -1,7 +1,7 @@
 "use client";
 import React, { useRef } from "react";
 
-import { Product } from "../../components/store/productListSlice";
+import { Product } from "@/components/store/productListSlice";
 
 import MiniTile from "./MiniTile";
 import ItemNotFound from "@/components/ItemNotFound";

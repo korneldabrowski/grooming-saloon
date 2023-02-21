@@ -1,8 +1,8 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
-import { RootState } from "../../components/store/store";
-import { LocalProduct } from "../../components/store/cartSlice";
+import { RootState } from "@/components/store/store";
+import { LocalProduct } from "@/components/store/cartSlice";
 
 const CartAmount = () => {
   const [numItems, setNumItems] = useState<number>(0);
@@ -21,7 +21,7 @@ const CartAmount = () => {
   }, [cartProducts]);
 
   return (
-    <div className="badge badge-warning badge-sm indicator-item">
+    <div className="badge-warning badge badge-sm indicator-item">
       {numItems}
     </div>
   );

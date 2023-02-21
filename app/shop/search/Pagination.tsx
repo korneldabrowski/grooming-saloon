@@ -23,20 +23,19 @@ const Pagination = ({
   return (
     <ReactPaginate
       breakLabel="..."
-      breakLinkClassName="btn btn-disabled btn-outline btn-xs sm:btn-md rounded-l-none rounded-r-none"
-      nextLabel="NEXT >>"
-      nextLinkClassName="btn btn-primary  rounded-l-none  btn-xs sm:btn-md "
+      breakLinkClassName="btn btn-disabled btn-outline btn-sm sm:btn-md rounded-l-none rounded-r-none"
+      nextLabel=" >>"
+      nextLinkClassName="btn btn-primary btn-square  rounded-l-none  btn-sm sm:btn-md "
       className=" btn-group mx-auto my-4 flex justify-center overflow-hidden "
       onPageChange={pageChange}
       marginPagesDisplayed={1}
       pageRangeDisplayed={2}
       pageCount={pageCount}
-      previousLabel="<< PREVIOUS"
+      previousLabel="<< "
       forcePage={Number(pageNumber) - 1}
-      previousLinkClassName="btn btn-primary rounded-r-none  btn-xs sm:btn-md "
+      previousLinkClassName="btn btn-primary rounded-r-none btn-square  btn-sm sm:btn-md "
       activeLinkClassName=" bg-secondary  "
-      // initialPage={Number(pageNumber) - 1}
-      pageLinkClassName="btn btn-outline rounded-l-none rounded-r-none  btn-xs sm:btn-md"
+      pageLinkClassName="btn btn-outline rounded-l-none rounded-r-none btn-sm sm:btn-md"
       containerClassName="btn-group "
     />
   );

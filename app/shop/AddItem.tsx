@@ -1,12 +1,13 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { addItem, CounterState } from "../../components/store/cartSlice";
-import { Product } from "../../components/store/productListSlice";
+import { addItem, CounterState } from "@/components/store/cartSlice";
+import { Product } from "@/components/store/productListSlice";
 import { useInterval } from "usehooks-ts";
 import { useSelector } from "react-redux";
-import { RootState } from "../../components/store/store";
-import { LocalProduct } from "../../components/store/cartSlice";
+import { RootState } from "@/components/store/store";
+import { LocalProduct } from "@/components/store/cartSlice";
+import ShowToast from "../../components/Toast";
 
 const AddItem = ({ product }: { product: Product }) => {
   const [myProduct, setMyProduct] = useState<LocalProduct>();
@@ -36,9 +37,6 @@ const AddItem = ({ product }: { product: Product }) => {
     for (let i = 0; i < quantity; i++) dispatch(addItem({ ...product }));
     setIsAdded(true);
   };
-
-  useInterval(() => setIsAdded(false), isAdded ? 4000 : null);
-  useInterval(() => setTooMany(false), tooMany ? 4000 : null);
 
   return (
     <div>
@@ -81,22 +79,18 @@ const AddItem = ({ product }: { product: Product }) => {
           Add to cart!
         </button>
         {isAdded && (
-          <div className="toast-end toast z-50">
-            <div className="alert alert-success shadow-xl">
-              <div>
-                <span>Product(s) added successfully.</span>
-              </div>
-            </div>
-          </div>
+          <ShowToast
+            onClose={() => setIsAdded(false)}
+            message="Product(s) added successfully!"
+            className="alert-success"
+          />
         )}
         {tooMany && (
-          <div className="toast-end toast z-50">
-            <div className="alert alert-error shadow-xl">
-              <div>
-                <span>Maximum 5 of each per order!</span>
-              </div>
-            </div>
-          </div>
+          <ShowToast
+            onClose={() => setTooMany(false)}
+            message="Maximum 5 of each item per order!"
+            className="alert-error"
+          />
         )}
       </div>
     </div>

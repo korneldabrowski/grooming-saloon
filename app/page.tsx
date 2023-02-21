@@ -1,11 +1,11 @@
 // export const dynamic = "force-dynamic";
 
-import Landing from "./components/Landing";
-import MiniAbout from "./components/MiniAbout";
-import PageDivider from "./components/(MiniAbout)/PageDivider";
-import BestSellers from "./components/(shop)/BestSellers";
-import Reviews from "./components/(Reviews)/Reviews";
-import Header from "./components/Header";
+import Landing from "./ServerComponents/Landing";
+import MiniAbout from "./ServerComponents/MiniAbout";
+import PageDivider from "./ServerComponents/(MiniAbout)/PageDivider";
+import BestSellers from "./ServerComponents/(shop)/BestSellers";
+import Reviews from "./ServerComponents/(Reviews)/Reviews";
+import Header from "./ServerComponents/Header";
 
 import Modal from "./Modal";
 
@@ -15,7 +15,7 @@ export default function Home() {
       <Modal />
       <Header path="/">
         <>
-          <button className="btn-outline btn btn-info rounded-full border-4 border-dashed p-2  font-black">
+          <button className="btn-outline btn-info btn rounded-full border-4 border-dashed p-2  font-black">
             Book a slot!
           </button>
         </>

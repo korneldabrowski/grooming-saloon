@@ -3,7 +3,7 @@ export const dynamic = "force-dynamic";
 import ProductTile from "../../ProductTile";
 
 import React from "react";
-import SearchBar from "../../SearchBar";
+import SearchBar from "@/components/SearchBar";
 import { getProductByID } from "@/app/DataFetcher";
 import GoBack from "@/components/GoBack";
 import ProductAdditionalInfo from "./ProductAdditionalInfo";

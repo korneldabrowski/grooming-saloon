@@ -36,7 +36,6 @@ export const productListSlice = createSlice({
       if (
         !state.products.find((product) => product._id === action.payload._id)
       ) {
-        console.log("adding product");
         state.products.push(action.payload);
       }
     },

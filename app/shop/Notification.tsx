@@ -7,7 +7,7 @@ const Notification = ({
   message,
   state,
 }: {
-  color: string;
+  color?: string;
   message: string;
   state: boolean;
 }) => {
@@ -19,17 +19,21 @@ const Notification = ({
     info: "alert alert-info shadow-lg",
   };
   const [isAdded, setIsAdded] = useState(state);
+  console.log(isAdded, "isadded");
+  console.log(state, "state");
 
   useInterval(() => setIsAdded(false), isAdded ? 4000 : null);
 
   return (
-    <div className="toast-end toast z-50">
-      <div className={`${colorVariants[color]} .`}>
-        <div>
-          <span>{message}</span>
+    <>
+      <div className="toast-end toast z-50">
+        <div className={`${colorVariants[color]} .`}>
+          <div>
+            <span>{message}</span>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

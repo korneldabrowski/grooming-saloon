@@ -1,19 +1,20 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
-import { useInterval } from "usehooks-ts";
 
-import { RootState } from "../../../components/store/store";
-import { LocalProduct } from "../../../components/store/cartSlice";
+import { RootState } from "@/components/store/store";
+import { LocalProduct } from "@/components/store/cartSlice";
 
 import TableItem from "./TableItem";
 import RightPanel from "./RightPanel";
+import ShowToast from "../../../components/Toast";
 
+// Client component as it uses redux toolkit data from the store
 const page = () => {
   const [products, setProducts] = useState<LocalProduct[]>([]);
   const [totalPrice, setTotalPrice] = useState(0);
   const [discountValue, setDiscountValue] = useState(0);
-  const [isAdded, setIsAdded] = useState(false);
+  const [toastVisible, setToastVisible] = useState(false);
 
   const productsState = useSelector<RootState, LocalProduct[]>(
     (state) => state.cart.products
@@ -38,8 +39,6 @@ const page = () => {
     }
   }, [productsState, products]);
 
-  useInterval(() => setIsAdded(false), isAdded ? 4000 : null);
-
   return (
     <div className="my-32 mb-64 font-maven ">
       <div className=" mx-auto mb-12 flex flex-col items-center justify-center font-exo text-5xl font-bold">
@@ -56,7 +55,7 @@ const page = () => {
             strokeLinejoin="round"
             d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"
           />
-        </svg>{" "}
+        </svg>
         My Cart
         <ul className="steps mt-6 text-base">
           <li className="step-secondary step">Cart review</li>
@@ -93,22 +92,18 @@ const page = () => {
         <div className=" prose mx-auto  max-w-none place-content-start text-lg lg:ml-auto  ">
           <RightPanel
             totalPrice={totalPrice}
-            setIsAdded={setIsAdded}
+            setIsAdded={setToastVisible}
             getDiscount={discountValue}
           />
         </div>
       </div>
 
-      {isAdded && (
-        <div className="toast-end toast z-50">
-          <div className="alert alert-error shadow-xl">
-            <div>
-              <span>
-                The following functionality is still under construction.
-              </span>
-            </div>
-          </div>
-        </div>
+      {toastVisible && (
+        <ShowToast
+          onClose={() => setToastVisible(false)}
+          message="The following functionality is still under construction."
+          className="alert-error"
+        />
       )}
     </div>
   );

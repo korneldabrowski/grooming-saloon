@@ -1,5 +1,5 @@
 import PartialSearch, { PartialSearchProps } from "@/lib/PartialSearch";
-import { useSearchParams, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import scroll from "@/lib/scrollTo";
 
 import useSearchAllParams from "./useSearchAllParams";

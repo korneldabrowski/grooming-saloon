@@ -1,7 +1,8 @@
-import Categories from "./Categories";
-import Categories2 from "./search/Categories";
 import ResetButton from "./search/ResetButton";
-import SearchBar from "./SearchBar";
+import SearchBar from "@/components/SearchBar";
+import Category from "./Category";
+import SearchCategory from "./search/SearchCategory";
+import Notification from "./Notification";
 
 const petShop = {
   categories: [
@@ -32,6 +33,25 @@ const petShop = {
   pet_types: ["bird", "cat", "dog", "fish", "hamster", "rabbit"],
 };
 
+const categories = [
+  {
+    label: "Categories",
+    title: "Categories",
+    items: petShop.categories,
+  },
+  {
+    label: "Country of Origin",
+    title: "Country of Origin",
+    items: petShop.countries,
+  },
+  { label: "Size", title: "Size", items: petShop.sizes },
+  {
+    label: "Pet Type",
+    title: "Pet Type",
+    items: petShop.pet_types,
+  },
+];
+
 const CategoriesWrapper = ({
   categoryType = "normal",
 }: {
@@ -41,26 +61,35 @@ const CategoriesWrapper = ({
     <>
       {categoryType === "normal" && (
         <>
-          <div className="relative mx-auto grid max-w-fit grid-cols-2 gap-x-2 pt-12 sm:mr-auto sm:flex sm:flex-row">
-            <Categories
-              petTypes={petShop.pet_types}
-              sizes={petShop.sizes}
-              countries={petShop.countries}
-              categoriess={petShop.categories}
-            />
+          <div id="category" className="mx-auto flex justify-center  pt-12 ">
+            <div className="relative mx-auto grid  max-w-fit grid-cols-2 justify-center gap-x-2 sm:mr-auto sm:flex sm:flex-row ">
+              {categories.map(({ label, title, items }) => (
+                <Category
+                  key={label}
+                  items={items}
+                  title={title}
+                  label={label}
+                />
+              ))}
+            </div>
           </div>
+
           <SearchBar />
         </>
       )}
 
       {categoryType === "side" && (
-        <div className="">
-          <Categories2
-            petTypes={petShop.pet_types}
-            sizes={petShop.sizes}
-            countries={petShop.countries}
-            categoriess={petShop.categories}
-          />
+        <div>
+          <div className=" flex flex-col gap-y-4">
+            {categories.map(({ label, title, items }) => (
+              <SearchCategory
+                key={label}
+                label={label}
+                title={title}
+                items={items}
+              />
+            ))}
+          </div>
           <ResetButton />
 
           <SearchBar />

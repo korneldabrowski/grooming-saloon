@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect, useTransition } from "react";
-import { Product } from "../../../components/store/productListSlice";
+import { Product } from "@/components/store/productListSlice";
 
 import MiniTile from "../MiniTile";
 import ItemNotFound from "@/components/ItemNotFound";

@@ -1,5 +1,5 @@
-import { useSearchParams } from "next/navigation";
 import React from "react";
+import { useSearchParams } from "next/navigation";
 
 export default function useSearchAllParams() {
   const searchParams = useSearchParams();

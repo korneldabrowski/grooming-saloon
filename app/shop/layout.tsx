@@ -1,6 +1,5 @@
-import Header from "../components/Header";
+import Header from "../ServerComponents/Header";
 import CartAmount from "./CartAmount";
-import MiniHeader from "./MiniHeader";
 import Providers from "./providers";
 import Link from "next/link";
 
@@ -33,8 +32,6 @@ export default function ShopLayout({
             </button>
           </Link>
         </Header>
-
-        <MiniHeader />
 
         {children}
       </section>

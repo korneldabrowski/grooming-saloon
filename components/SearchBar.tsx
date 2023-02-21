@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import usePerformChange from "./search/usePerformChange";
+import usePerformChange from "../app/shop/search/usePerformChange";
 const SearchBar = () => {
   const [search, setSearch] = useState("");
 

@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 
 import { useSearchParams } from "next/navigation";
@@ -10,7 +11,7 @@ interface CategoryProps {
   items: string[];
 }
 
-const Category = ({ label, title, items }: CategoryProps) => {
+const SearchCategory = ({ label, title, items }: CategoryProps) => {
   const searchParams = useSearchParams();
 
   const performChange = usePerformChange({ label: label });
@@ -75,4 +76,4 @@ const Category = ({ label, title, items }: CategoryProps) => {
   );
 };
 
-export default Category;
+export default SearchCategory;
