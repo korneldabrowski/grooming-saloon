@@ -26,6 +26,8 @@ export default async function Page({ params }: { params: { id: string } }) {
             <ProductAdditionalInfo />
           </>
         )}
+        {/* Below ts exception is required as TypeScript doesn't support async Server Components yet */}
+        {/* @ts-expect-error Server Component */}
         <SimilarItems category={product.categories} pet={product.pet} />
       </div>
     </div>

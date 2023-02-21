@@ -1,6 +1,7 @@
 import React from "react";
 import { getProductByTypes } from "@/app/DataFetcher";
 import MainSection from "../../MainSection";
+import ItemNotFound from "@/components/ItemNotFound";
 
 interface Props {
   category: string;
@@ -19,8 +20,11 @@ async function getSimilarProducts({ category, pet }: Props) {
   return recommendedProductList;
 }
 
-export default async function SimilarItems({ category, pet }: Props) {
+export default async function SimilarItems<Promise>({ category, pet }: Props) {
   const products = await getSimilarProducts({ category, pet });
+
+  if (!products) return <div>loading...</div>;
+  if (products.length === 0) return <ItemNotFound />;
 
   return (
     <div>
