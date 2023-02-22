@@ -2,7 +2,7 @@ import "./globals.css";
 
 import { Exo_2 } from "@next/font/google";
 import { Maven_Pro } from "@next/font/google";
-import Footer from "./ServerComponents/Footer";
+import Footer from "app/components/Layout/Footer";
 
 const exo_2 = Exo_2({
   subsets: ["latin"],

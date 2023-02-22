@@ -1,6 +1,6 @@
 import React from "react";
 
-import CategoriesWrapper from "../../ServerComponents/ShopPage/categories/CategoriesWrapper";
+import CategoriesWrapper from "app/components/shopPage/categories/CategoriesWrapper";
 
 const page = () => {
   return (

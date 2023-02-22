@@ -1,10 +1,10 @@
 "use client";
-import PartialSearch from "@/lib/PartialSearch";
+import PartialSearch from "lib/PartialSearch";
 import { useRouter } from "next/navigation";
-import scroll from "@/lib/scrollTo";
+import scroll from "lib/scrollTo";
 
 import useSearchAllParams from "./useSearchAllParams";
-import { usePerformChangeProps, PartialSearchProps } from "@/types/types";
+import { usePerformChangeProps, PartialSearchProps } from "types/types";
 
 const usePerformChange = ({ label }: usePerformChangeProps) => {
   const router = useRouter();

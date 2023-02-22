@@ -1,12 +1,13 @@
-export const dynamic = "force-dynamic";
+// export const dynamic = "force-dynamic";
+// export const dynamicParams = true; // true | false,
 
 import React, { Suspense } from "react";
-import RecommendedList from "../../../components/shopPage/Search/SearchList";
+import RecommendedList from "app/components/shopPage/Search/SearchList";
 
 import {
   getProductByTypes,
   getSizeOfCollectionByTypes,
-} from "@/app/DataFetcher";
+} from "app/MongoDB/DataFetcher";
 
 interface Props {
   searchParams?: {

@@ -1,13 +1,13 @@
 // export const dynamic = "force-dynamic";
 
-import Landing from "./ServerComponents/LandingPage/(Hero)/Landing";
-import MiniAbout from "./ServerComponents/LandingPage/(MiniAbout)/MiniAbout";
-import PageDivider from "./ServerComponents/LandingPage/(MiniAbout)/PageDivider";
-import BestSellers from "./ServerComponents/LandingPage/(shop)/BestSellers";
-import Reviews from "./ServerComponents/LandingPage/(Reviews)/Reviews";
+import Landing from "app/components/LandingPage/(Hero)/Landing";
+import MiniAbout from "app/components/LandingPage/(MiniAbout)/MiniAbout";
+import PageDivider from "app/components/LandingPage/(MiniAbout)/PageDivider";
+import BestSellers from "app/components/LandingPage/(shop)/BestSellers";
+import Reviews from "app/components/LandingPage/(Reviews)/Reviews";
 
-import Modal from "./Modal";
-import NavHeader from "./ServerComponents/NavHeader";
+import Modal from "./components/Misc/Modal";
+import NavHeader from "./components/Layout/NavHeader";
 
 export default function Home() {
   return (

@@ -1,13 +1,13 @@
 export const dynamic = "force-dynamic";
 
-import ProductTile from "../../../ServerComponents/ShopPage/Product/ProductTile";
+import ProductTile from "app/components/shopPage/Product/ProductTile";
 
 import React from "react";
-import SearchBar from "@/app/ClientComponents/shopPage/SearchBar";
-import { getProductByID } from "@/app/DataFetcher";
-import GoBack from "@/app/ClientComponents/shopPage/GoBack";
-import ProductAdditionalInfo from "../../../ServerComponents/ShopPage/Product/ProductAdditionalInfo";
-import SimilarItems from "../../../ServerComponents/ShopPage/Product/SimilarItems";
+import SearchBar from "app/components/shopPage/Search/SearchBar";
+import { getProductByID } from "app/MongoDB/DataFetcher";
+import GoBack from "app/components/shopPage/GoBack";
+import ProductAdditionalInfo from "app/components/shopPage/Product/ProductAdditionalInfo";
+import SimilarItems from "app/components/shopPage/Product/SimilarItems";
 
 export default async function Page({ params }: { params: { id: string } }) {
   const product = JSON.parse(

@@ -1,13 +1,13 @@
 "use client";
 import React, { useState, useEffect } from "react";
+
 import { useSelector } from "react-redux";
+import { RootState } from "app/components/store/store";
+import { LocalProduct } from "app/components/store/cartSlice";
 
-import { RootState } from "@/app/ClientComponents/store/store";
-import { LocalProduct } from "@/app/ClientComponents/store/cartSlice";
-
-import TableItem from "@/app/ClientComponents/shopPage/cartPage/TableItem";
-import RightPanel from "@/app/ClientComponents/shopPage/cartPage/RightPanel";
-import CartEmpty from "@/app/ServerComponents/ShopPage/404 Elements/CartEmpty";
+import TableItem from "app/components/shopPage/cartPage/TableItem";
+import RightPanel from "app/components/shopPage/cartPage/RightPanel";
+import CartEmpty from "app/components/Misc/404 Elements/CartEmpty";
 
 // Client component as it uses redux toolkit data from the store
 const page = () => {

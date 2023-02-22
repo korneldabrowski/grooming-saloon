@@ -6,8 +6,8 @@ export default function Error({
   error,
   reset,
 }: {
-  error: Error,
-  reset: () => void,
+  error: Error;
+  reset: () => void;
 }) {
   useEffect(() => {
     // Log the error to an error reporting service
@@ -15,7 +15,7 @@ export default function Error({
   }, [error]);
 
   return (
-    <div>
+    <div className=" my-36 text-center text-3xl text-error">
       <h2>Something went wrong!</h2>
       <button
         onClick={

@@ -1,8 +1,8 @@
 import React from "react";
 
-import Banner from "../ServerComponents/ShopPage/HomePage/Banner";
-import CategoriesWrapper from "../ServerComponents/ShopPage/categories/CategoriesWrapper";
-import Recommended from "./Recommended";
+import Banner from "app/components/shopPage/HomePage/Banner";
+import CategoriesWrapper from "app/components/shopPage/categories/CategoriesWrapper";
+import Recommended from "app/components/shopPage/categories/Recommended";
 const page = async () => {
   return (
     <main className="bg-base-100 px-2 font-maven">

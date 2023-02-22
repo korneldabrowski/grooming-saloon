@@ -1,6 +1,6 @@
-import Header from "../ServerComponents/NavHeader";
-import CartAmount from "@/app/ClientComponents/shopPage/cartPage/CartAmount";
-import Providers from "./providers";
+import NavHeader from "app/components/Layout/NavHeader";
+import CartAmount from "app/components/shopPage/cartPage/CartAmount";
+import Providers from "app/components/store/providers";
 import Link from "next/link";
 
 export default function ShopLayout({
@@ -11,7 +11,7 @@ export default function ShopLayout({
   return (
     <Providers>
       <section>
-        <Header path="/shop">
+        <NavHeader path="/shop">
           <Link href="/shop/cart">
             <button className="indicator mr-4 sm:mr-10">
               <svg
@@ -31,7 +31,7 @@ export default function ShopLayout({
               <CartAmount />
             </button>
           </Link>
-        </Header>
+        </NavHeader>
 
         {children}
       </section>

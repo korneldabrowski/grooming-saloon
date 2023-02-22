@@ -1,4 +1,4 @@
-import { PartialSearchProps } from "@/types/types";
+import { PartialSearchProps } from "types/types";
 
 export default function PartialSearch({
   size = "",
