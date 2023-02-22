@@ -2,8 +2,8 @@
 import React, { useState, useEffect, useTransition } from "react";
 import { Product } from "@/types/types";
 
-import MiniTile from "../MiniTile";
-import ItemNotFound from "@/components/ItemNotFound";
+import MiniTile from "../../../app/ServerComponents/ShopPage/Product/MiniTile";
+import ItemNotFound from "@/app/ServerComponents/ShopPage/404 Elements/ItemNotFound";
 
 import useSearchAllParams from "../../../hooks/useSearchAllParams";
 

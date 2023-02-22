@@ -1,12 +1,12 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import { addItem } from "@/components/store/cartSlice";
+import { addItem } from "@/app/ClientComponents/store/cartSlice";
 import { Product } from "@/types/types";
 import { useSelector, useDispatch } from "react-redux";
-import { RootState } from "@/components/store/store";
-import { LocalProduct } from "@/components/store/cartSlice";
+import { RootState } from "@/app/ClientComponents/store/store";
+import { LocalProduct } from "@/app/ClientComponents/store/cartSlice";
 
-import ShowToast from "../../components/Toast";
+import ShowToast from "@/app/ClientComponents/Toast";
 
 const AddItem = ({ product }: { product: Product }) => {
   const [myProduct, setMyProduct] = useState<LocalProduct>();

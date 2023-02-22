@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import usePerformChange from "../../hooks/usePerformChange";
+import usePerformChange from "@/hooks/usePerformChange";
 
 interface CategoryProps {
   label: string;
@@ -24,10 +24,10 @@ const Category = ({ label, title, items }: CategoryProps) => {
       <label className="label text-end">
         <span className="label-text">{label}</span>
       </label>
-      <div className="dropdown dropdown-hover   ">
+      <div className="dropdown-hover dropdown   ">
         <label
           tabIndex={0}
-          className="btn btn-primary m-1 w-32 border-2  border-base-300 text-base-100 hover:scale-110  "
+          className="btn-primary btn m-1 w-32 border-2  border-base-300 text-base-100 hover:scale-110  "
         >
           {title}
         </label>

@@ -1,4 +1,4 @@
-import CategoriesWrapper from "../CategoriesWrapper";
+import CategoriesWrapper from "../../ServerComponents/ShopPage/categories/CategoriesWrapper";
 export default function DashboardLayout({
   children,
 }: {

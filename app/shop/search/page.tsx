@@ -1,7 +1,7 @@
 export const dynamic = "force-dynamic";
 
 import React, { Suspense } from "react";
-import RecommendedList from "./SearchList";
+import RecommendedList from "../../../components/shopPage/Search/SearchList";
 
 import {
   getProductByTypes,

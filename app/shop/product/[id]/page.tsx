@@ -1,13 +1,13 @@
 export const dynamic = "force-dynamic";
 
-import ProductTile from "../../ProductTile";
+import ProductTile from "../../../ServerComponents/ShopPage/Product/ProductTile";
 
 import React from "react";
-import SearchBar from "@/components/SearchBar";
+import SearchBar from "@/app/ClientComponents/shopPage/SearchBar";
 import { getProductByID } from "@/app/DataFetcher";
-import GoBack from "@/components/GoBack";
-import ProductAdditionalInfo from "./ProductAdditionalInfo";
-import SimilarItems from "./SimilarItems";
+import GoBack from "@/app/ClientComponents/shopPage/GoBack";
+import ProductAdditionalInfo from "../../../ServerComponents/ShopPage/Product/ProductAdditionalInfo";
+import SimilarItems from "../../../ServerComponents/ShopPage/Product/SimilarItems";
 
 export default async function Page({ params }: { params: { id: string } }) {
   const product = JSON.parse(

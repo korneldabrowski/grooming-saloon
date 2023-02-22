@@ -1,7 +1,7 @@
 import React from "react";
-import RecommendedList from "./RecommendedList";
+import RecommendedList from "../../../shop/RecommendedList";
 
-import { Product } from "../../components/store/productListSlice";
+import { Product } from "@/types/types";
 
 const MainSection = ({
   products,

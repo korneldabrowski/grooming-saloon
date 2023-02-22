@@ -1,6 +1,6 @@
 import React from "react";
 
-import MainSection from "./MainSection";
+import MainSection from "../ServerComponents/ShopPage/HomePage/MainSection";
 
 import { getRecommended, getRecommendedByQuery } from "@/app/DataFetcher";
 

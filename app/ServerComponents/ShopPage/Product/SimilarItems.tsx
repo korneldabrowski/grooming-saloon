@@ -1,7 +1,7 @@
 import React from "react";
 import { getProductByTypes } from "@/app/DataFetcher";
-import MainSection from "../../MainSection";
-import ItemNotFound from "@/components/ItemNotFound";
+import MainSection from "../HomePage/MainSection";
+import ItemNotFound from "@/app/ServerComponents/ShopPage/404 Elements/ItemNotFound";
 
 interface Props {
   category: string;

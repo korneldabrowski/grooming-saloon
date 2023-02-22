@@ -1,6 +1,6 @@
 import React from "react";
 
-import AddItem from "./AddItem";
+import AddItem from "@/app/ClientComponents/shopPage/Product/AddItem";
 import { Product } from "@/types/types";
 import Image from "next/image";
 

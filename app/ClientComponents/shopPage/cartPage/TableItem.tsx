@@ -1,18 +1,13 @@
 "use client";
-import { Product } from "@/components/store/productListSlice";
 import React, { useState } from "react";
 import Link from "next/link";
-import { setItemQuantity } from "@/components/store/cartSlice";
+import { setItemQuantity } from "@/app/ClientComponents/store/cartSlice";
 import { useDispatch } from "react-redux";
 
-const TableItem = ({
-  product,
-  quantity,
-}: {
-  product: Product;
-  quantity: number;
-}) => {
-  const [quantityState, setQuantityState] = useState(quantity);
+import { LocalProduct } from "@/types/types";
+
+const TableItem = ({ product }: { product: LocalProduct }) => {
+  const [quantityState, setQuantityState] = useState(product.quantity);
   const dispatch = useDispatch();
 
   function handleSelect(event: React.ChangeEvent<HTMLSelectElement>) {

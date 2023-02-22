@@ -1,18 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
+import ShowToast from "@/app/ClientComponents/Toast";
 
 const RightPanel = ({
   totalPrice,
-  setIsAdded,
   getDiscount,
 }: {
   totalPrice: number;
-  setIsAdded: any;
   getDiscount: number;
 }) => {
+  const [toastVisible, setToastVisible] = useState(false);
+
   return (
     <div>
       <div className="form-control ">
-        <div className=""></div>
         <label className="label">
           <span className="label-text">ENTER PROMO CODE</span>
         </label>
@@ -67,9 +67,9 @@ const RightPanel = ({
 
         <button
           onClick={() => {
-            setIsAdded(true);
+            setToastVisible(true);
           }}
-          className="btn btn-secondary btn-block btn-lg mx-auto"
+          className="btn-secondary btn-block btn-lg btn mx-auto"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -86,6 +86,14 @@ const RightPanel = ({
           CHECKOUT
         </button>
       </div>
+
+      {toastVisible && (
+        <ShowToast
+          onClose={() => setToastVisible(false)}
+          message="The following functionality is still under construction."
+          className="alert-error"
+        />
+      )}
     </div>
   );
 };

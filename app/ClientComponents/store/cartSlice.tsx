@@ -1,6 +1,6 @@
 "use client";
 import { createSlice } from "@reduxjs/toolkit";
-import { Product } from "./productListSlice";
+import { Product } from "@/types/types";
 
 export interface LocalProduct extends Omit<Product, "quantity"> {
   quantity: number;
@@ -55,6 +55,13 @@ const setQuantities = (
 
   if (existingItem) {
     existingItem.quantity = quantity;
+  }
+
+  if (existingItem?.quantity === 0) {
+    const existingItemIndex = state.products.findIndex(
+      (item) => item._id === _id
+    );
+    state.products.splice(existingItemIndex, 1);
   }
 
   typeof window !== "undefined"

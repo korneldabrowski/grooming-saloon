@@ -1,8 +1,7 @@
-import ResetButton from "./search/ResetButton";
-import SearchBar from "@/components/SearchBar";
-import Category from "./Category";
-import SearchCategory from "./search/SearchCategory";
-import Notification from "./Notification";
+import ResetButton from "@/app/ClientComponents/shopPage/Search/ResetButton";
+import SearchBar from "@/app/ClientComponents/shopPage/SearchBar";
+import Category from "@/app/ClientComponents/shopPage/Search/Category";
+import SearchCategory from "@/app/ClientComponents/shopPage/Search/SearchCategory";
 
 const petShop = {
   categories: [

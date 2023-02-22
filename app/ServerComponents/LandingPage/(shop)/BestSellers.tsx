@@ -1,6 +1,6 @@
 import React from "react";
 import { getRecommended } from "@/app/DataFetcher";
-import ItemNotFound from "@/components/ItemNotFound";
+import ItemNotFound from "@/app/ServerComponents/ShopPage/404 Elements/ItemNotFound";
 import { Product } from "@/types/types";
 import BestTile from "./BestTile";
 
@@ -24,7 +24,7 @@ const BestSellers = async (): Promise<React.ReactNode> => {
     <div className=" relative mb-12">
       <div className="flex justify-between">
         <h2 className="text-4xl">Our best Selling Products</h2>
-        <button className="btn-outline btn-warning btn ml-auto rounded-full border-4 border-dashed py-2 px-4  font-black">
+        <button className="btn-outline btn btn-warning ml-auto rounded-full border-4 border-dashed py-2 px-4  font-black">
           See more
         </button>
       </div>

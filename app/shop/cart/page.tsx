@@ -2,19 +2,18 @@
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 
-import { RootState } from "@/components/store/store";
-import { LocalProduct } from "@/components/store/cartSlice";
+import { RootState } from "@/app/ClientComponents/store/store";
+import { LocalProduct } from "@/app/ClientComponents/store/cartSlice";
 
-import TableItem from "./TableItem";
-import RightPanel from "./RightPanel";
-import ShowToast from "../../../components/Toast";
+import TableItem from "@/app/ClientComponents/shopPage/cartPage/TableItem";
+import RightPanel from "@/app/ClientComponents/shopPage/cartPage/RightPanel";
+import CartEmpty from "@/app/ServerComponents/ShopPage/404 Elements/CartEmpty";
 
 // Client component as it uses redux toolkit data from the store
 const page = () => {
   const [products, setProducts] = useState<LocalProduct[]>([]);
   const [totalPrice, setTotalPrice] = useState(0);
   const [discountValue, setDiscountValue] = useState(0);
-  const [toastVisible, setToastVisible] = useState(false);
 
   const productsState = useSelector<RootState, LocalProduct[]>(
     (state) => state.cart.products
@@ -38,6 +37,8 @@ const page = () => {
       setProducts(productsState);
     }
   }, [productsState, products]);
+
+  if (products.length === 0) return <CartEmpty />;
 
   return (
     <div className="my-32 mb-64 font-maven ">
@@ -71,11 +72,7 @@ const page = () => {
 
           <div className="mt-0 grid w-full grid-flow-row items-center justify-between gap-y-8 ">
             {products.map((item) => (
-              <TableItem
-                key={item._id}
-                product={item}
-                quantity={item.quantity}
-              />
+              <TableItem key={item._id} product={item} />
             ))}
           </div>
           <div className="grid grid-cols-1">
@@ -86,25 +83,11 @@ const page = () => {
             </span>
           </div>
         </div>
-
         <div className="hidden border-opacity-50  lg:divider lg:divider-horizontal"></div>
-
         <div className=" prose mx-auto  max-w-none place-content-start text-lg lg:ml-auto  ">
-          <RightPanel
-            totalPrice={totalPrice}
-            setIsAdded={setToastVisible}
-            getDiscount={discountValue}
-          />
+          <RightPanel totalPrice={totalPrice} getDiscount={discountValue} />
         </div>
       </div>
-
-      {toastVisible && (
-        <ShowToast
-          onClose={() => setToastVisible(false)}
-          message="The following functionality is still under construction."
-          className="alert-error"
-        />
-      )}
     </div>
   );
 };

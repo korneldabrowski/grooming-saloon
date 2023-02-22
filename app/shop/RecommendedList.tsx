@@ -1,10 +1,10 @@
 "use client";
 import React, { useRef } from "react";
 
-import { Product } from "@/components/store/productListSlice";
+import { Product } from "@/types/types";
 
-import MiniTile from "./MiniTile";
-import ItemNotFound from "@/components/ItemNotFound";
+import MiniTile from "../ServerComponents/ShopPage/Product/MiniTile";
+import ItemNotFound from "@/app/ServerComponents/ShopPage/404 Elements/ItemNotFound";
 import Link from "next/link";
 
 const RecommendedList = ({
@@ -64,7 +64,7 @@ const RecommendedList = ({
 
               <Link
                 href={`shop/search?Pet=${search}`}
-                className="btn-neutral btn-wide btn  mt-4  text-base-100"
+                className="btn-neutral btn btn-wide  mt-4  text-base-100"
               >
                 Shop All
               </Link>

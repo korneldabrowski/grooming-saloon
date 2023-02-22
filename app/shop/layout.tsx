@@ -1,5 +1,5 @@
 import Header from "../ServerComponents/NavHeader";
-import CartAmount from "./CartAmount";
+import CartAmount from "@/app/ClientComponents/shopPage/cartPage/CartAmount";
 import Providers from "./providers";
 import Link from "next/link";
 
