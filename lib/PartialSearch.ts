@@ -1,12 +1,4 @@
-export interface PartialSearchProps {
-  size: string;
-  country: string;
-  categories: string;
-  pet: string;
-  label: string;
-  searchString: string;
-  page: string;
-}
+import { PartialSearchProps } from "@/types/types";
 
 export default function PartialSearch({
   size = "",

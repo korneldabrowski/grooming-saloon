@@ -1,7 +1,7 @@
 import React from "react";
-import Header from "./Header";
+import Header from "../../NavHeader";
 import NavIcons from "./NavIcons";
-import Paw from "./Paw";
+import Paw from "../../Paw";
 
 const Landing = () => {
   return (

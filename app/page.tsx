@@ -1,53 +1,37 @@
 // export const dynamic = "force-dynamic";
 
-import Landing from "./ServerComponents/Landing";
-import MiniAbout from "./ServerComponents/MiniAbout";
-import PageDivider from "./ServerComponents/(MiniAbout)/PageDivider";
-import BestSellers from "./ServerComponents/(shop)/BestSellers";
-import Reviews from "./ServerComponents/(Reviews)/Reviews";
-import Header from "./ServerComponents/Header";
+import Landing from "./ServerComponents/LandingPage/(Hero)/Landing";
+import MiniAbout from "./ServerComponents/LandingPage/(MiniAbout)/MiniAbout";
+import PageDivider from "./ServerComponents/LandingPage/(MiniAbout)/PageDivider";
+import BestSellers from "./ServerComponents/LandingPage/(shop)/BestSellers";
+import Reviews from "./ServerComponents/LandingPage/(Reviews)/Reviews";
 
 import Modal from "./Modal";
+import NavHeader from "./ServerComponents/NavHeader";
 
 export default function Home() {
   return (
-    <main className=" font-maven  ">
+    <main>
       <Modal />
-      <Header path="/">
+      <NavHeader path="/">
         <>
           <button className="btn-outline btn-info btn rounded-full border-4 border-dashed p-2  font-black">
             Book a slot!
           </button>
         </>
-      </Header>
-      <div className="bg-base-100">
-        <div className="mx-auto  max-w-screen-xl">
-          <Landing />
-        </div>
-      </div>
+      </NavHeader>
+      <div className=" mx-auto max-w-screen-xl  bg-base-100 font-maven ">
+        <Landing />
 
-      <div className="bg-base-100">
-        <div className="mx-auto   max-w-screen-xl">
-          <MiniAbout />
-        </div>
-      </div>
+        <MiniAbout />
 
-      <div className="bg-base-100">
-        <div className="mx-auto  max-w-screen-xl">
-          <PageDivider />
-        </div>
-      </div>
+        <PageDivider />
 
-      <div className=" bg-base-100">
-        <div className="mx-auto  max-w-screen-xl p-4">
-          <BestSellers />
-        </div>
-      </div>
+        {/* Below ts exception is required as TypeScript doesn't support async Server Components yet */}
+        {/* @ts-expect-error Server Component */}
+        <BestSellers />
 
-      <div className="bg-base-100">
-        <div className="mx-auto  max-w-screen-xl p-2 sm:p-4">
-          <Reviews />
-        </div>
+        <Reviews />
       </div>
     </main>
   );

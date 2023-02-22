@@ -1,5 +1,5 @@
 import React from "react";
-import NavIcons from "./NavIcons";
+import NavIcons from "./LandingPage/(Hero)/NavIcons";
 
 const Footer = () => {
   return (

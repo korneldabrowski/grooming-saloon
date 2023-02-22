@@ -1,7 +1,7 @@
 import React from "react";
 import { getRecommended } from "@/app/DataFetcher";
 import ItemNotFound from "@/components/ItemNotFound";
-import { Product } from "@/components/store/productListSlice";
+import { Product } from "@/types/types";
 import BestTile from "./BestTile";
 
 const colors = ["red", "cyan", "green", "yellow", "blue"];

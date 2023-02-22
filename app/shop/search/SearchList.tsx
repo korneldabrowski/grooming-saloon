@@ -1,15 +1,15 @@
 "use client";
 import React, { useState, useEffect, useTransition } from "react";
-import { Product } from "@/components/store/productListSlice";
+import { Product } from "@/types/types";
 
 import MiniTile from "../MiniTile";
 import ItemNotFound from "@/components/ItemNotFound";
 
-import useSearchAllParams from "./useSearchAllParams";
+import useSearchAllParams from "../../../hooks/useSearchAllParams";
 
 import scroll from "@/lib/scrollTo";
 import Pagination from "./Pagination";
-import usePerformChange from "./usePerformChange";
+import usePerformChange from "../../../hooks/usePerformChange";
 
 const RecommendedList = ({
   products,
@@ -46,7 +46,7 @@ const RecommendedList = ({
 
   const isMutating = isFetching || isPending;
 
-  function performChange(event: any) {
+  function performChange(event: { selected: number }) {
     let item = event.selected + 1;
     scroll();
     setIsFetching(true);
@@ -54,7 +54,7 @@ const RecommendedList = ({
     setPageNumber(item);
 
     startTransition(() => {
-      setPageRoute(item, "add");
+      setPageRoute(item.toString(), "add");
     });
 
     setIsFetching(false);

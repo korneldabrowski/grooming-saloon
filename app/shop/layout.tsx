@@ -1,4 +1,4 @@
-import Header from "../ServerComponents/Header";
+import Header from "../ServerComponents/NavHeader";
 import CartAmount from "./CartAmount";
 import Providers from "./providers";
 import Link from "next/link";

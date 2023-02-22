@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import usePerformChange from "../app/shop/search/usePerformChange";
+import usePerformChange from "../hooks/usePerformChange";
 const SearchBar = () => {
   const [search, setSearch] = useState("");
 
@@ -24,7 +24,7 @@ const SearchBar = () => {
             placeholder="Search…"
             className="input-group-sm input-bordered input-accent input w-32  focus:outline-none focus:ring-1 focus:ring-accent	"
           />
-          <button type="submit" className="btn-primary btn-square btn ">
+          <button type="submit" className="btn btn-primary btn-square ">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-6 w-6"

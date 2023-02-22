@@ -1,7 +1,7 @@
 import React from "react";
 
 import AddItem from "./AddItem";
-import { Product } from "@/components/store/productListSlice";
+import { Product } from "@/types/types";
 import Image from "next/image";
 
 const ProductTile: React.FC<Product> = (product) => {

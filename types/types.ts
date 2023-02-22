@@ -20,14 +20,6 @@ export interface HomeProps {
   };
 }
 
-// Props for Pagination component
-export interface PaginationProps {
-  itemNumber: number;
-  noItems?: number;
-  pageNumber?: any;
-  pageChange: any;
-}
-
 // Props for SearchCategory component
 export interface SearchCategoryProps {
   label: string;
@@ -68,7 +60,7 @@ export interface CounterState {
   products: LocalProduct[];
 }
 
-// Props for PartialSearch component
+// Props for PartialSearch helper function
 export interface PartialSearchProps {
   size?: string;
   country?: string;
@@ -77,4 +69,33 @@ export interface PartialSearchProps {
   label?: string;
   searchString?: string;
   page?: string;
+}
+
+// Props for Product component
+export interface Product {
+  _id: string;
+  pet_types: string;
+  categories: string;
+  countries: string;
+  sizes: string;
+  price: number;
+  discounted: boolean;
+  old_price: number;
+  rating: number;
+  product_name: string;
+  product_description: string;
+  product_image: string;
+}
+
+// Props for Pagination component
+export interface PaginationProps {
+  noItems: number;
+  pageNumber: any;
+  setPage: (page: number) => void;
+  productLength: number;
+}
+
+// Props for usePerformChange hook
+export interface usePerformChangeProps {
+  label: string;
 }

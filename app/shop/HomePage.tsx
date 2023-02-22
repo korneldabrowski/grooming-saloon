@@ -10,6 +10,7 @@ const HomePage = async () => {
       <Banner />
 
       <CategoriesWrapper />
+      {/* Below ts exception is required as TypeScript doesn't support async Server Components yet */}
       {/* @ts-expect-error Server Component */}
       <Recommended />
     </div>

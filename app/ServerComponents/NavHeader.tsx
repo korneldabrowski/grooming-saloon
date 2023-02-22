@@ -7,7 +7,7 @@ type Props = {
   path: string;
 };
 
-const Header: React.FC<Props> = ({ children, path }) => {
+const NavHeader: React.FC<Props> = ({ children, path }) => {
   return (
     <nav className="navbar sticky top-0 z-[999] h-16 bg-neutral p-0 py-2 text-neutral-content sm:px-6   ">
       <div className="mr-auto  ">
@@ -98,4 +98,4 @@ const Header: React.FC<Props> = ({ children, path }) => {
   );
 };
 
-export default Header;
+export default NavHeader;

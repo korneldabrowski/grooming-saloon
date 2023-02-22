@@ -1,12 +1,11 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { addItem, CounterState } from "@/components/store/cartSlice";
-import { Product } from "@/components/store/productListSlice";
-import { useInterval } from "usehooks-ts";
-import { useSelector } from "react-redux";
+import { addItem } from "@/components/store/cartSlice";
+import { Product } from "@/types/types";
+import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "@/components/store/store";
 import { LocalProduct } from "@/components/store/cartSlice";
+
 import ShowToast from "../../components/Toast";
 
 const AddItem = ({ product }: { product: Product }) => {

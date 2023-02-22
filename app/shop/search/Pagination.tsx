@@ -4,7 +4,7 @@ import ReactPaginate from "react-paginate";
 interface PaginationProps {
   itemNumber: number;
   noItems: number;
-  pageNumber: any;
+  pageNumber: number;
   pageChange: any;
 }
 
