@@ -3,16 +3,20 @@ export const dynamic = "force-dynamic";
 import ProductTile from "app/components/shopPage/Product/ProductTile";
 
 import React from "react";
-import SearchBar from "app/components/shopPage/Search/SearchBar";
 import { getProductByID } from "app/MongoDB/DataFetcher";
 import GoBack from "app/components/shopPage/GoBack";
 import ProductAdditionalInfo from "app/components/shopPage/Product/ProductAdditionalInfo";
 import SimilarItems from "app/components/shopPage/Product/SimilarItems";
+import ItemNotFound from "app/components/Misc/404 Elements/ItemNotFound";
 
 export default async function Page({ params }: { params: { id: string } }) {
   const product = JSON.parse(
     JSON.stringify(await getProductByID({ id: params.id }))
   );
+
+  if (!product) {
+    return <ItemNotFound />;
+  }
   return (
     <div>
       <div className="my-12 flex justify-center text-2xl font-bold">

@@ -7,6 +7,7 @@ import { getCategories } from "app/MongoDB/DataFetcher";
 export const revalidate = 3600; // revalidate every hour
 
 import React from "react";
+
 async function getCategoriesArray() {
   const categories = JSON.parse(JSON.stringify(await getCategories()));
   return categories;

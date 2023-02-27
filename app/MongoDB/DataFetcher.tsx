@@ -240,7 +240,12 @@ export async function getProductByTypes({
 }
 
 export async function getProductByID({ id }: { id: string }) {
-  const objectId = new ObjectId(id);
+  let objectId;
+  try {
+    objectId = new ObjectId(id);
+  } catch (error) {
+    return null;
+  }
 
   // @ts-ignore
   const { database } = await connectToDatabase();
