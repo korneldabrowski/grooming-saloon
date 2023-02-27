@@ -1,5 +1,5 @@
-// export const dynamic = "force-dynamic";
-// export const dynamicParams = true; // true | false,
+export const dynamic = "force-dynamic";
+export const dynamicParams = true; // true | false,
 
 import React, { Suspense } from "react";
 import RecommendedList from "app/components/shopPage/Search/SearchList";
