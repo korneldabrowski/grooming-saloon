@@ -42,7 +42,7 @@ const Pagination = ({
       />
       <div className="text-center text-sm font-semibold">
         Total of {itemNumber} items.
-        <div className=" dropdown dropdown-right dropdown-hover">
+        <div className=" dropdown-hover dropdown-top dropdown-end dropdown sm:dropdown-bottom">
           <label
             tabIndex={0}
             className="btn btn-ghost btn-xs btn-circle text-info"
@@ -63,7 +63,7 @@ const Pagination = ({
           </label>
           <div
             tabIndex={0}
-            className="dropdown-content compact card rounded-box w-64  bg-base-100 shadow-xl"
+            className="card dropdown-content compact rounded-box w-48 bg-base-100  shadow-xl sm:w-64"
           >
             <div className="card-body">
               <h2 className="card-title text-sm">

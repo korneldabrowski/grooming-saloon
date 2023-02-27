@@ -3,6 +3,27 @@ import "server-only";
 import { connectToDatabase } from "./mongodb";
 import { ObjectId } from "mongodb";
 
+//As a temporary solution, until the caching behavior of third-party queries can be configured, you can use segment configuration to customize the cache behavior of the entire segment.
+export const revalidate = 3600; // revalidate every hour
+
+export async function getCategories() {
+  //@ts-ignore
+  const { database } = await connectToDatabase();
+  const collection = database.collection(process.env.NEXT_ATLAS_COLLECTION);
+
+  const petTypes = await collection.distinct("pet_types");
+  const categories = await collection.distinct("categories");
+  const countries = await collection.distinct("countries");
+  const sizes = await collection.distinct("sizes");
+
+  return {
+    petTypes,
+    categories,
+    countries,
+    sizes,
+  };
+}
+
 export async function getRecommended() {
   //@ts-ignore
   const { database } = await connectToDatabase();
@@ -117,7 +138,6 @@ export async function getRecommendedByQuery({
       console.log("Error while retrieving recommended products:", err);
     });
 
-  console.log(discountedProductList);
   return discountedProductList;
 }
 

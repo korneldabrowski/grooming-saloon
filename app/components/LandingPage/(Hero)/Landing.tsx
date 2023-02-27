@@ -7,6 +7,7 @@ const Landing = () => {
     <div className=" p-2 text-neutral">
       <div className="divider"></div>
       <NavIcons size={24} />
+
       <div className="mt-6 whitespace-pre-line text-center font-maven text-3xl font-semibold sm:px-36 sm:text-6xl">
         <h2 className=" ">
           <span className="rounded-full bg-info py-2 px-4">Paw-fect</span>

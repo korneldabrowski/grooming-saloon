@@ -4,7 +4,7 @@ import React from "react";
 import { useRouter } from "next/navigation";
 import scroll from "lib/scrollTo";
 
-export default function GoBack({ color = "sucess" }: { color: string }) {
+export default function GoBack({ color = "sucess" }: { color?: string }) {
   const colorVariants: { [key: string]: string } = {
     sucess: "btn-success",
     info: "btn-info",

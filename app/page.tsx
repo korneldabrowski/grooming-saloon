@@ -11,16 +11,14 @@ import NavHeader from "./components/Layout/NavHeader";
 
 export default function Home() {
   return (
-    <main>
+    <main className="">
       <Modal />
       <NavHeader path="/">
-        <>
-          <button className="btn-outline btn-info btn rounded-full border-4 border-dashed p-2  font-black">
-            Book a slot!
-          </button>
-        </>
+        <button className="btn-outline btn-info btn border-4  border-dashed  text-sm   sm:rounded-full  sm:btn-wide">
+          Booking
+        </button>
       </NavHeader>
-      <div className=" mx-auto max-w-screen-xl  bg-base-100 font-maven ">
+      <div className=" mx-auto max-w-screen-xl  bg-base-100 px-2 font-maven">
         <Landing />
 
         <MiniAbout />

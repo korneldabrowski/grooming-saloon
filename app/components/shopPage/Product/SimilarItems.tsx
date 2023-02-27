@@ -28,8 +28,6 @@ export default async function SimilarItems<Promise>({ category, pet }: Props) {
 
   return (
     <div>
-      pet: {pet} <br />
-      category: {category}
       <MainSection
         products={products}
         header="People who bought this also bought"

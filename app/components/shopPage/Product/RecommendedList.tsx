@@ -1,24 +1,18 @@
 "use client";
-import React, { useRef } from "react";
+import React, { useRef, FC } from "react";
 
-import { Product } from "types/types";
-
+import { RecommendedListProps, Product } from "types/types";
+import cn from "lib/cn";
 import MiniTile from "app/components/shopPage/Product/MiniTile";
 import ItemNotFound from "app/components/Misc/404 Elements/ItemNotFound";
 import Link from "next/link";
 
-const RecommendedList = ({
+const RecommendedList: FC<RecommendedListProps> = ({
   products,
   title,
   description,
   order,
   search,
-}: {
-  products: Product[];
-  title: string;
-  description: string;
-  order: string;
-  search: string;
 }) => {
   const scrollableRef = useRef<HTMLUListElement>(null);
 
@@ -72,7 +66,10 @@ const RecommendedList = ({
           <div className=" relative border-2 border-r-0 border-l-0 border-secondary shadow-sm lg:col-span-2 lg:py-8">
             <button
               onClick={handleClick}
-              className="absolute top-1/2 right-0 z-20  transform animate-wiggle cursor-pointer text-info"
+              className={cn(
+                "absolute top-1/2 right-0 z-20  transform animate-wiggle cursor-pointer text-info hover:animate-none   hover:text-primary active:animate-ping",
+                products.length > 2 ? "hidden sm:block" : "block sm:hidden"
+              )}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"

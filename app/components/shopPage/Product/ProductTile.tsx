@@ -6,19 +6,17 @@ import Image from "next/image";
 
 const ProductTile: React.FC<Product> = (product) => {
   return (
-    <div className="flex flex-col">
-      <div className=" card  relative mx-auto mb-12 flex w-11/12  flex-col justify-center  p-4 sm:w-full md:w-3/4 xl:flex-row">
-        <div className="">
-          <Image
-            width={400}
-            height={600}
-            quality={80}
-            // src={product.product_image}
-            src="https://picsum.photos/200/300"
-            alt="product picture"
-            className="h-full w-full transition duration-500  hover:scale-110"
-          />
-        </div>
+    <div className="flex flex-col bg-primary/10">
+      <div className=" card relative  mx-auto mb-12 flex w-11/12 flex-col  justify-center  p-4 sm:w-full md:w-3/4 xl:flex-row">
+        <Image
+          width={400}
+          height={600}
+          quality={80}
+          // src={product.product_image}
+          src="https://picsum.photos/600/400"
+          alt="product picture"
+          className="w-full "
+        />
 
         <div className="card-body prose-xl mx-auto mt-0 w-full pt-2 font-maven  prose-headings:text-6xl">
           <h2 className="card-title relative z-10 mb-0 font-bold">

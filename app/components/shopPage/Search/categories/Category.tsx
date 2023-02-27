@@ -4,7 +4,6 @@ import usePerformChange from "hooks/usePerformChange";
 
 interface CategoryProps {
   label: string;
-  title: string;
   items: string[];
 }
 
@@ -16,7 +15,7 @@ interface PartialSearchProps {
   label: string;
 }
 
-const Category = ({ label, title, items }: CategoryProps) => {
+const Category = ({ label, items }: CategoryProps) => {
   const performChange = usePerformChange({ label: label });
 
   return (
@@ -24,16 +23,16 @@ const Category = ({ label, title, items }: CategoryProps) => {
       <label className="label text-end">
         <span className="label-text">{label}</span>
       </label>
-      <div className="group dropdown dropdown-hover">
+      <div className="dropdown-hover group dropdown">
         <label
           tabIndex={0}
           className="btn-primary btn m-1 w-32 border-2 border-base-300 text-base-100  group-hover:scale-110"
         >
-          {title}
+          {label}
         </label>
         <ul
           tabIndex={0}
-          className="dropdown-content menu glass w-44 rounded-md p-2 shadow"
+          className="dropdown-content menu glass  w-full  rounded-md p-2 shadow"
         >
           {items.map((item) => (
             <li key={item} className="relative z-50">

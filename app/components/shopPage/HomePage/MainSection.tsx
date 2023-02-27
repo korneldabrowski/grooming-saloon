@@ -1,5 +1,5 @@
 import React from "react";
-import RecommendedList from "../categories/RecommendedList";
+import RecommendedList from "../Product/RecommendedList";
 
 import { Product } from "types/types";
 

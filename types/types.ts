@@ -99,3 +99,12 @@ export interface PaginationProps {
 export interface usePerformChangeProps {
   label: string;
 }
+
+// Props for Recommended List component
+export interface RecommendedListProps {
+  products: Product[];
+  title: string;
+  description: string;
+  order: string;
+  search: string;
+}

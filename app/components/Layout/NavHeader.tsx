@@ -1,4 +1,3 @@
-"use client";
 import React from "react";
 import Link from "next/link";
 
@@ -9,12 +8,12 @@ type Props = {
 
 const NavHeader: React.FC<Props> = ({ children, path }) => {
   return (
-    <nav className="navbar sticky top-0 z-[999] h-16 bg-neutral p-0 py-2 text-neutral-content sm:px-6   ">
-      <div className="mr-auto  ">
-        <div className="dropdown z-50 max-w-fit  lg:hidden">
-          <ul className="menu menu-horizontal bg-neutral ">
+    <nav className="navbar sticky top-0 z-[999] h-16 overflow-x-clip bg-neutral p-0 px-0 py-2 text-neutral-content sm:px-6   ">
+      <div className="mr-auto p-0   ">
+        <div className="dropdown z-50 lg:hidden">
+          <ul className="menu menu-compact menu-horizontal bg-neutral sm:px-1">
             <li tabIndex={0}>
-              <a className="px-1 sm:px-4">
+              <a className="p-0">
                 Menu
                 <svg
                   className="fill-current"
@@ -43,11 +42,11 @@ const NavHeader: React.FC<Props> = ({ children, path }) => {
             </li>
           </ul>
         </div>
-        <h1 className="btn btn-ghost max-w-fit p-0 text-xl normal-case text-secondary sm:basis-full sm:p-2 sm:text-3xl">
-          <Link href={path}>Barktiful Grooming</Link>
-        </h1>
       </div>
-      <div className="navbar-center z-50 hidden lg:flex">
+      <h1 className="btn-ghost btn   justify-end p-0 text-lg normal-case text-secondary sm:p-2 sm:text-3xl">
+        <Link href={path}>Barktiful Grooming</Link>
+      </h1>
+      <div className="navbar-center z-50 hidden lg:mx-auto lg:flex">
         <ul className=" menu menu-horizontal rounded-xl bg-accent/90 px-1 text-lg font-medium   ">
           <li className="hover:scale-110">
             <Link href={path}>Home</Link>{" "}
@@ -93,7 +92,7 @@ const NavHeader: React.FC<Props> = ({ children, path }) => {
           )}
         </ul>
       </div>
-      <div className="ml-auto flex ">{children}</div>
+      <div className="ml-auto flex">{children}</div>
     </nav>
   );
 };

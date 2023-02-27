@@ -26,7 +26,7 @@ const MiniTile = ({
 }: Props) => {
   const [isLoading, setIsLoading] = useState(true);
   return (
-    <div className="card card-compact max-w-xs rounded-md  border-2 ">
+    <div className="card-compact card max-w-xs rounded-md  border-2 ">
       <figure>
         <Link onClick={scroll} href={`/shop/product/${id}`}>
           <Image

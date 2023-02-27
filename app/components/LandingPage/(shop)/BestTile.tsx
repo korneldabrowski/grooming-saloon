@@ -25,19 +25,20 @@ const BestTile = ({
   };
 
   return (
-    <div className="flex flex-col">
+    <div className="flex  flex-col">
       <div
         className={cn(
-          " relative z-10  snap-start overflow-hidden px-20 py-12 pt-28",
+          " relative z-10  snap-start overflow-hidden px-20 py-12 pt-28 ",
           colorVariants[color],
           shapeVariants[shape]
         )}
       >
         <Image
           fill
-          className="absolute top-0 left-0 -z-10 h-full w-full object-cover opacity-30 hue-rotate-30"
+          className=" absolute top-0 left-0 -z-10 h-full w-full object-cover  opacity-50 hue-rotate-30"
           alt="product image"
-          src={image}
+          // src={image}
+          src="https://picsum.photos/200/300"
         />
       </div>
       <div className=" mb-24 w-full bg-base-100 p-4">

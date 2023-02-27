@@ -2,30 +2,38 @@
 import React from "react";
 
 import { useSearchParams } from "next/navigation";
-
+import cn from "lib/cn";
 import usePerformChange from "hooks/usePerformChange";
 
 interface CategoryProps {
   label: string;
-  title: string;
   items: string[];
 }
 
-const SearchCategory = ({ label, title, items }: CategoryProps) => {
+const SearchCategory = ({ label, items }: CategoryProps) => {
   const searchParams = useSearchParams();
+
+  const currentItem = searchParams?.get(label.split(" ")[0]);
 
   const performChange = usePerformChange({ label: label });
 
+  console.log("currentItem", currentItem);
+  console.log("label", label);
+
   return (
     <>
-      <label className="label-text label mb-0  text-neutral-content">
+      <label className="label-text label mb-0   text-neutral-content">
         {label}
       </label>
-
       <div className=" collapse-arrow collapse mt-0">
         <input type="checkbox" className="peer" />
-        <div className="collapse-title bg-primary font-semibold text-primary-content">
-          {searchParams?.get(label.split(" ")[0]) || title}
+        <div
+          className={cn(
+            "collapse-title bg-primary  text-primary-content",
+            currentItem && " font-semibold"
+          )}
+        >
+          {currentItem || label}
         </div>
         <div className="scrollbarClass collapse-content mb-0 h-72 overflow-y-scroll bg-primary p-0 pb-0 text-primary-content overflow-x-hidden scrollbar-thumb-info ">
           <ul className="menu mr-2 flex w-full justify-start  overflow-hidden rounded-md bg-secondary   ">
@@ -33,9 +41,7 @@ const SearchCategory = ({ label, title, items }: CategoryProps) => {
               <li
                 key={item}
                 className={`relative flex w-full ${
-                  searchParams?.get(label.split(" ")[0]) === item
-                    ? " font-bold"
-                    : ""
+                  currentItem === item && " font-bold"
                 }`}
               >
                 <button

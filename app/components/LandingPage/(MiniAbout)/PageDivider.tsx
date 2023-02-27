@@ -43,7 +43,7 @@ const PageDivider = () => {
         <PageItem
           key={item.title}
           title={item.title}
-          image={item.image}
+          image={"/bathingDog.png"}
           alt={item.alt}
           color={item.color}
         />

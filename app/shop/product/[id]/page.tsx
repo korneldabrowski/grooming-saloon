@@ -15,7 +15,6 @@ export default async function Page({ params }: { params: { id: string } }) {
   );
   return (
     <div>
-      <SearchBar />
       <div className="my-12 flex justify-center text-2xl font-bold">
         <GoBack color="" />
       </div>
@@ -28,7 +27,7 @@ export default async function Page({ params }: { params: { id: string } }) {
         )}
         {/* Below ts exception is required as TypeScript doesn't support async Server Components yet */}
         {/* @ts-expect-error Server Component */}
-        <SimilarItems category={product.categories} pet={product.pet} />
+        <SimilarItems category={product.categories} pet={product.pet_types} />
       </div>
     </div>
   );

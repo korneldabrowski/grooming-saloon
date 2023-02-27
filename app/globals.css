@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+/* * {
+  outline: 2px solid red;
+} */
 .btn {
   @apply no-animation hover:scale-105;
 }
@@ -13,14 +16,19 @@ input.hideArrows::-webkit-inner-spin-button {
   margin: 0;
 }
 
+@layer components {
+  .hamburger div:first-child {
+    @apply translate-y-[0.435rem] rotate-[45deg];
+  }
+  .hamburger div:last-child {
+    @apply -translate-y-[0.425rem] -rotate-[45deg];
+  }
+}
+
 /* Firefox */
 input.hideArrows[type="number"] {
   -moz-appearance: textfield;
 }
-
-/* .hideArrows{
-  @apply hidden md:flex
-} */
 
 .navbarSVG {
   @apply my-auto cursor-pointer font-exo;
@@ -29,36 +37,12 @@ input.hideArrows[type="number"] {
 .scrollbarClass {
   @apply scrollbar scrollbar-track-base-200 scrollbar-thumb-secondary;
 }
-.dashedButton {
-  @apply btn-outline btn-info btn rounded-full border-4 border-dashed p-2;
-}
 
 .heroElements {
   @apply inline-block rounded-full bg-primary/60	 p-2  text-center  font-medium text-neutral lg:rounded-full  lg:px-4 lg:py-8;
 }
 .blobElement {
   @apply absolute h-36 w-36 animate-blob rounded-full opacity-30 mix-blend-multiply blur-2xl filter sm:h-72 sm:w-72;
-}
-
-.star-rating {
-  display: flex;
-  justify-content: center;
-  gap: 4px;
-}
-
-.c-star {
-  width: var(--size, 32px);
-  height: var(--size, 32px);
-  fill: lightgrey;
-  stroke: grey;
-}
-
-.c-star-active {
-  width: var(--size, 32px);
-  height: var(--size, 32px);
-  fill: lightgrey;
-  stroke: grey;
-  fill: #fed94b;
 }
 
 @layer utilities {
